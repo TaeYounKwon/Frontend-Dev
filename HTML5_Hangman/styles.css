@@ -1,0 +1,108 @@
+html,body {
+    font-size: 1.2em;
+    font-family: 'Arvo', serif;
+    text-align: center;
+}
+
+
+a {
+    color: #000;
+    margin: 0.2em;
+    text-decoration: none;
+}
+
+#game_result {
+    font-size: 2em;
+}
+
+section#hangman {
+    height: 30.5em;
+    overflow: hidden;
+}
+
+#game {
+    text-align: center;
+}
+
+.hide {
+    opacity: 0;
+}
+
+#game_movement {
+    height: 10em;
+    margin: 0 auto;
+    width: 11em;
+}
+
+#game_word,
+#game_guesses {
+    letter-spacing: 1em;
+}
+
+.human_head {
+	border-radius: 50%;
+	width: 40px;
+	height: 40px; 
+    background-color: #000000;
+    position: relative;
+    bottom: 150px;
+    left: 112px;
+	/* width and height can be anything, as long as they're equal */
+}
+
+.human_upper {
+    background: #000000;
+    width: 40px;
+    height: 50px;
+    position: relative;
+    left: 112px;
+    bottom: 150px;
+}
+
+.human_lower {
+    background: #000000;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    left: 117px;
+    bottom: 150px;
+}
+
+.line_1 {
+    background: #000;
+    width: 100px;
+    height: 8px;
+    position: relative;
+    left: 46px;
+}
+
+.line_2 {
+    width: 8px;
+    height: 150px;
+    background: #000;
+    left: 46px;
+    position: relative;
+}
+
+.background {
+    border-color: transparent transparent #000000 transparent;
+    border-width: 0 50px 50px 50px;
+    border-style: solid;
+    width: 0;
+    height: 0;
+    bottom: 10px;
+    position: relative;
+}
+#progress {
+    position: relative;
+    width: 500px;
+    height: 30px;
+}
+.line_3 {
+    width: 6px;
+    height: 40px;
+    background-color: #000000;
+    position: relative;
+    bottom: 150px;
+    left: 130px;
+}

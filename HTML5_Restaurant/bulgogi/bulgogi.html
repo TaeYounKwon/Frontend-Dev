@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Jack's Book Project</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+</head>
+<body>  <!-- Navigation-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="">Jack's Book Info Editing Program</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownPortfolio" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu</a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
+                        <a class="dropdown-item" href="">1.Books </a>
+                        <a class="dropdown-item" href="">2.Show Book </a>
+                        <a class="dropdown-item" href="">3.Insert Book </a>
+                        <a class="dropdown-item" href="">4.Update Book </a>
+                        <a class="dropdown-item" href="">5.Delete Book </a>
+                        <a class="dropdown-item" href="">6.Authors </a>
+                        <a class="dropdown-item" href="">7.Show Author </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Page Content-->
+<section class="py-5">
+    <div class="container">
+        <!-- Page Heading/Breadcrumbs-->
+        <h1>
+            #1.
+        </h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item"><a href="">Home</a></li>
+            <li class="breadcrumb-item active">Add New Books</li>
+        </ol>
+
+        <!-- Portfolio Item Row-->
+        <div class="container">
+            <h1>Load Books</h1>
+            <button class="btn-primary btn-lg" id="btnLoadFriends">Load Books</button>
+            <a href="add.html" class="btn-lg">Add Books</a>
+            <div class="jumbotron" id="output">
+
+            </div>
+        </div>
+
+    </div>
+</section>
+        <script>
+            function CreateTable(data){
+                let table = "";
+                table =
+                    '<table class="table table-bordered table-hover"> \n' +
+                    '   <thead>\n' +
+                    '       <tr>\n' +
+                    '           <th scope="col">Title</th> \n'+
+                    '           <th scope="col">Description</th> \n'+
+                    '           <th scope="col">Year</th> \n'+
+                    '           <th scope="col">Author</th> \n'+
+                    '           <th scope="col">HardCover</th> \n'+
+                    '           <th scope="col">Price</th> \n'+
+                    '       </tr>\n' +
+                    '   </thead>\n' +
+                    '   <tbody>\n';
+
+                for (let book in data){
+                    table +=
+                        '       <tr>\n' +
+                        '           <td>' + data[book]["title"]+  '</td>\n' +
+                        '           <td>' + data[book]["description"]+  '</td>\n' +
+                        '           <td>' + data[book]["year"]+  '</td>\n' +
+                        '           <td>' + data[book]["author"]+  '</td>\n' +
+                        '           <td>' + data[book]["hardCover"]+  '</td>\n' +
+                        '           <td>' + data[book]["price"]+  '</td>\n' +
+                        '       </tr>\n';
+                }
+
+                table +=
+                    '   </tbody>\n' +
+                    '</table>\n'
+                return table;
+            }
+            document.getElementById("btnLoadFriends").addEventListener("click", (event) =>{
+                let url = "https://kweonbook.herokuapp.com/api/books/"
+                let xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function (){
+                    if (this.readyState == 4 && this.status == 200){
+                        document.getElementById("output").innerHTML =
+                            CreateTable(JSON.parse(this.responseText));
+                    }
+                };
+                xhttp.open('GET', url, true);
+                xhttp.send();
+            });
+        </script>
+
+
+<hr class="my-0" />
+<!-- Footer-->
+<footer class="py-5 bg-dark">
+    <div class="container"><p class="m-0 text-center text-white">Copyright &copy;  Jack Kweon </p></div>
+</footer>
+<!-- Bootstrap core JS-->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+<!-- Core theme JS-->
+<script src="js/scripts.js"></script>
+</body>
+</html>
