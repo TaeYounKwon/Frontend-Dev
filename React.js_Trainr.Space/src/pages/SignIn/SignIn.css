@@ -1,0 +1,276 @@
+.bg-custom-1{
+  background-color: #95B4A4!important;
+}
+
+.left-side{
+  display: flex;
+  position: relative;
+  height: 500px !important;
+  width: 500px !important;
+  margin-right: 100px;
+}
+
+.right-side {
+  position: relative;
+  min-height: 400px !important;
+  min-width: 400px !important;
+  margin-top: -120px;
+  margin-left: 100px;
+  border-radius: 15px !important; 
+}
+
+.logo-signin{
+  height: 100px!important;
+  width: 100px!important;
+  position: absolute!important;
+  left:-5px!important;
+  top:-13px!important;
+}
+
+.font-logo-signin {
+  margin-left: 40px!important;
+  font-size: 48px !important;
+  font-weight: bolder;
+}
+
+.font-logo-color {
+  color:#2D4471;
+}
+
+.font-main {
+  color:white;
+  font-size: 32px !important;
+  font-weight: bolder !important;
+}
+
+.font-sub {
+  color:white;
+  font-size: 24px !important;
+  font-weight: bolder !important;
+}
+
+.font-extra {
+  color:#D9D9D9;
+  font-size: 18px !important;
+  font-weight: bold;
+  margin-top: 1.5vh;
+}
+
+.form-style-signin{
+  height: 50px !important;
+  width: 380px !important;
+  margin-top: 30px !important;
+  font-size: 18px !important;
+}
+
+.button-back-signin{
+  height: 50px !important;
+  width: 160px !important;
+  margin-left: -220px !important;
+  margin-top: 3vh !important;
+  font-size: 24px !important;
+  color: white;
+  font-weight:bold;
+}
+
+.button-login{
+  height: 50px !important;
+  width: 160px !important;
+  font-size: 24px !important;
+  margin-right:-220px !important;
+  margin-top:-50px !important;
+  color: white;
+  font-weight:bold;
+}
+
+.font-findpassword{
+  color:white;
+  font-size: 18px !important;
+  font-weight: bold;
+  margin-top: 20px;
+
+}
+
+
+/* Tablet */
+@media screen and (min-width:961px) and (max-width: 1200px) {
+    
+  /*Add More Here*/
+  .left-side{
+      height: 500px !important;
+      width: 500px !important;
+      margin-right: 25px !important;
+      margin-top: 50px !important;
+    }
+
+  .right-side {
+      margin-left: 25px !important;
+    }
+}
+
+
+/* Tablet  - Some mobile */
+@media screen and (min-width:881px) and (max-width: 960px) 
+{
+    
+  /*Add More Here*/  
+  .left-side{
+    margin-right: 5px !important;
+  }
+
+.right-side {
+    margin-left: 5px !important;
+  }
+
+  .logo-signin{
+   position: absolute!important;
+    left:-20px!important;
+    top:-13px!important;
+  }
+}
+
+
+/* tablet to some mobile*/
+@media screen and (min-width:480px) and (max-width: 880px) 
+{
+  .m-block{
+    position:fixed;
+    width: 100% !important;
+    height: auto !important;
+    align-items: center !important;
+    vertical-align: middle !important;
+  }
+ .left-side{
+  display: none !important; 
+ }
+ .right-side{
+   min-width: none !important;
+   min-height: auto !important;
+  margin-top: auto !important; 
+  margin-left: auto !important;
+ }
+
+ .logo-signin{
+  position: absolute!important;
+   left:-20px!important;
+   top:-13px!important;
+ }
+ 
+  
+}
+
+
+/* Mobile1 */
+@media screen  and (min-width:400px) and (max-width:480px) {
+  .m-block{
+    position:fixed;
+    width: 100% !important;
+    height: auto !important;
+  }
+  .left-side{
+    display: none !important; 
+   }
+    
+   .right-side{
+    margin-left: 0vw !important;
+    margin-right: 0vw !important;
+    padding: auto !important;
+  }
+       
+  .logo-signin{
+    position: absolute!important;
+    top:-15px!important;
+    left:-20px!important;
+  }
+  .font-logo-signin{
+    font-size: 10vw !important;
+  }
+   .font-main{
+     font-size: 6vw !important;
+   } 
+   
+   .font-sub{
+    font-size: 5vw !important;
+   }
+  .font-extra{
+    font-size: 4vw !important;
+  }
+  .form-style-signin{
+    height: 50px !important;
+    width: 300px !important;
+    margin-top: 30px !important;
+    font-size: 18px !important;
+  }
+  
+  
+}
+
+/* Mobile2 */
+@media screen  and (max-width:399px) {
+  .m-block{
+    width: 100% !important;
+    height: auto !important;
+  }
+  .left-side{
+    display: none !important; 
+   }
+    
+   .right-side{
+     width: 100vw !important;
+    margin-left: 0vw !important;
+    margin-right: 0vw !important;
+    padding: auto !important;
+  }
+       
+  .logo-signin{
+    position: absolute!important;
+    width: 90px !important;
+    height: 90px !important;
+    top:-2.5vh!important;
+    left:2px!important;
+  }
+  .font-logo-signin{
+    font-size: 10vw !important;
+  }
+   .font-main{
+     font-size: 6vw !important;
+   } 
+   
+   .font-sub{
+    font-size: 5vw !important;
+   }
+  .font-extra{
+    font-size: 4vw !important;
+  }
+  
+.form-style-signin{
+  height: 50px !important;
+  width: 300px !important;
+  margin-top: 30px !important;
+  font-size: 18px !important;
+}
+
+.button-back-signin{
+  height: 7.5vh !important;
+  width: 35vw !important;
+  margin-left: -45vw !important;
+  font-size: 6vw !important;
+  color: white;
+  font-weight:bold;
+}
+
+.button-login{
+  height: 7.5vh !important;
+  width: 35vw !important;
+  font-size: 6vw !important;
+  margin-right:-45vw !important;
+  margin-top:-7.5vh !important;
+  color: white;
+  font-weight:bold;
+}
+
+.font-findpassword{
+  font-size: 4vw !important;
+}
+  
+}

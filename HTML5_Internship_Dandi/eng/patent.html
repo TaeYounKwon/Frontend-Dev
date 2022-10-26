@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width">
+
+    <title>DanDi Bioscience</title>
+
+    <link rel="stylesheet" href="_css/layout.css" />
+
+    <script src="/js/jquery-1.11.3.min.js"></script>
+
+    <script src="/js/jquery-animate-css-rotate-scale.js"></script>
+
+    <script>
+
+        $(document).ready(function(){
+
+            // 상단 헤더 이펙트
+
+            // window.onscroll = function(){
+
+            // 	if($(document).scrollTop() > 1){
+
+            // 		$(".header_wrap").addClass("indicator");
+
+            // 	}else{
+
+            // 		$(".header_wrap").removeClass("indicator");
+
+            // 	}
+
+            // }
+
+            $(".gnb > li").mouseover (function(){
+
+                $(".header_wrap").addClass("indicator");
+
+            });
+
+
+
+            $("#A_Header").mouseleave (function(){
+
+                if(!$(document).scrollTop() > 1){
+
+                    $(".header_wrap").removeClass("indicator");
+
+                }
+
+            });
+
+
+
+            // PC 메뉴 오픈
+
+            $(".gnb_wrap .gnb > li").on('mouseover', function(){
+
+                $(this).addClass('on');
+
+                $(this).find('.lnb').stop().slideDown();
+
+            }).on('mouseout',function(){
+
+                $(this).removeClass('on');
+
+                $(this).find('.lnb').stop().slideUp();
+
+            });
+
+
+
+
+
+            // 언어 마우스오버
+
+            $('.util .lang_wrap a').mouseenter(function(){
+
+                $(this).text('KOR');
+
+            });
+
+            $('.util .lang_wrap a').mouseleave(function(){
+
+                $(this).text('ENG');
+
+            });
+
+
+
+            var posY;
+
+            function bodyFreezeScroll() {
+
+                posY = $(window).scrollTop();
+
+                $("html").css("position","fixed");
+
+                $("html").css("top",-posY);
+
+            }
+
+
+
+            function bodyUnfreezeScroll() {
+
+                $("html").css("position","static");
+
+                posY = $(window).scrollTop(posY);
+
+            }
+
+
+
+            // 사이트맵 오픈
+
+            $('.btn_sitemap').click(function(){
+
+                $('.sitemap_wrap').fadeIn();
+
+                bodyFreezeScroll();
+
+            });
+
+            $('.sitemap_wrap .btn_close').click(function(){
+
+                $('.sitemap_wrap').fadeOut();
+
+                bodyUnfreezeScroll();
+
+            });
+
+
+
+            // menu open
+
+            menu_bt = 0;
+
+            $('.menubar').click(function(){
+
+                if( menu_bt == 0 ) {
+
+                    bodyFreezeScroll();
+
+                    $('.menubar li:eq(0)').animate({'rotate':'45deg','top':'5px'},300);
+
+                    $('.menubar li:eq(1)').fadeOut();
+
+                    $('.menubar li:eq(2)').animate({'rotate':'-45deg','top':'5px'},300);
+
+                    $('.menubar li').css('background-color', '#fff');
+
+                    $('.full_wrap').css('right', '0');
+
+                    menu_bt = 1;
+
+                } else if( menu_bt == 1 ) {
+
+                    bodyUnfreezeScroll();
+
+                    $('.menubar li:eq(0)').animate({'rotate':'0','top':'0'},300);
+
+                    $('.menubar li:eq(1)').fadeIn();
+
+                    $('.menubar li:eq(2)').animate({'rotate':'0','top':'10px'},300);
+
+                    $('.menubar li').removeAttr('style');
+
+                    $('.full_wrap').css('right', '-80%');
+
+                    menu_bt = 0;
+
+
+
+                }
+
+            });
+
+            // 모바일 메뉴
+
+            $('.full_wrap .gnb > li').click(function(){
+
+                $(this).addClass('on');
+
+                $(this).children('.lnb').slideToggle();
+
+                $(this).siblings().children('.lnb').slideUp();
+
+                $(this).siblings().removeClass("on");
+
+            });
+
+        });
+
+    </script>
+
+    <!-- s: 현재페이지에만 적용할 특정 스크립트 추가영역 -->
+    <link rel="stylesheet" href="_css/sub.css" />
+    <script>
+        $(document).ready(function() {
+            $('.nav_sub').click(function(){
+                $('.drop_box').slideToggle();
+            });
+
+            //Search
+            $("#btnSearch").click(function(){
+                $("#bbs_page").val("");
+                $('#frm').attr({
+                    'action': 'patent.php',
+                    'enctype': 'application/x-www-form-urlencoded',
+                    'encoding': 'application/x-www-form-urlencoded',
+                    'target': '_self'
+                }).submit();
+            });
+        });
+    </script>
+    <!-- e: 현재페이지에만 적용할 특정 스크립트 추가영역 -->
+</head>
+
+<body>
+<div id="A_Wrap">
+    <div id="A_Header">
+        <div class="header_wrap indicator">
+            <h1 class="logo">
+                <a href="index.php">DanDi Bioscience</a>
+            </h1>
+            <div class="gnb_wrap">
+                <ul class="gnb">
+                    <li>
+                        <a href="index.php" class="depth1">HOME</a>
+                    </li>
+                    <li>
+                        <p class="depth1">ABOUT US</p>
+                        <ul class="lnb">
+                            <li><a href="ceo.php">CEO'S MESSAGE</a></li>
+                            <li><a href="vision.php">Vision</a></li>
+                            <li><a href="organization.php">Organization chart</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p class="depth1">WORK</p>
+                        <ul class="lnb">
+                            <li><a href="platform.php">Platform Technology</a></li>
+                            <li><a href="pipeline.php">Pipelines</a></li>
+                            <li><a href="patent.php">Patents/Publications</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p class="depth1">PR</p>
+                        <ul class="lnb">
+                            <li><a href="news.php">NEWS</a></li>
+                            <li><a href="notice.php">Notice</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p class="depth1">CONTACT US</p>
+                        <ul class="lnb">
+                            <li><a href="contact.php">Contact Us</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="util">
+                <div class="lang_wrap">
+                    <a href="/index.php">ENG</a>
+                </div>
+                <button type="button" class="btn_sitemap">사이트맵</button>
+            </div>
+            <div class="sitemap_wrap">
+                <div class="inner">
+                    <strong class="sitemap_logo">
+                        <a href="index.php">DanDi Bioscience</a>
+                    </strong>
+                    <ul class="sitemap_list">
+                        <li>
+                            <p>ABOUT US</p>
+                            <ul>
+                                <li><a href="ceo.php">CEO'S MESSAGE</a></li>
+                                <li><a href="vision.php">Vision</a></li>
+                                <li><a href="organization.php">Organization chart</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <p>WORK</p>
+                            <ul>
+                                <li><a href="platform.php">Platform Technology</a></li>
+                                <li><a href="pipeline.php">PIPELINES</a></li>
+                                <li><a href="patent.php">Patents/Publications</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <p>PR</p>
+                            <ul>
+                                <li><a href="news.php">NEWS</a></li>
+                                <li><a href="notice.php">Notice</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <p>CONTACT US</p>
+                            <ul>
+                                <li><a href="contact.php">Contact Us</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <button type="button" class="btn_close">Close</button>
+            </div>
+            <ul class="menubar">
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+            <div class="full_wrap">
+                <div class="lang_wrap">
+                    <a href="/index.php">KOR</a>
+                </div>
+                <ul class="gnb">
+                    <li>
+                        <a href="#" class="depth1">HOME</a>
+                    </li>
+                    <li>
+                        <p class="depth1">ABOUT US</p>
+                        <ul class="lnb">
+                            <li><a href="ceo.php">CEO GREETING</a></li>
+                            <li><a href="vision.php">Vision</a></li>
+                            <li><a href="organization.php">Organization chart</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p class="depth1">WORK</p>
+                        <ul class="lnb">
+                            <li><a href="platform.php">Platform Technology</a></li>
+                            <li><a href="pipeline.php">Pipelines</a></li>
+                            <li><a href="patent.php">Patents/Publications</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p class="depth1">PR</p>
+                        <ul class="lnb">
+                            <li><a href="news.php">NEWS</a></li>
+                            <li><a href="notice.php">Notice</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p class="depth1">CONTACT US</p>
+                        <ul class="lnb">
+                            <li><a href="contact.php">Contact Us</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>	</div>
+    <div id="A_Container_Wrap">
+        <div class="sub_visual sub_visual02">
+            <div class="inner">
+                <strong>PATENT / <br class="m_block">PUBLICATIONS</strong>
+                <p>Let me introduce the research results of DanDi Bioscience.</p>
+            </div>
+        </div>
+        <div class="nav_wrap">
+            <ul>
+                <li><a href="#">HOME</a></li>
+                <li><p>WORK</p></li>
+                <li class="nav_sub">
+                    <p>Patents/Publications</p>
+                    <ul class="drop_box">
+                        <li><a href="platform.php">Platform Technology</a></li>
+                        <li><a href="pipeline.php">Pipelines</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div id="A_Container">
+            <div class="sub_contents">
+                <div class="inner">
+                    <form class="search_wrap" id="frm" name="frm" method="post">
+                        <input type="hidden" id="bbs_page" name="bbs_page" />
+                        <input type="hidden" id="idx" name="idx" />
+                        <div class="search_box">
+                            <select id="srcType" name="srcType">
+                                <option value="content">Contents</option>
+                            </select>
+                            <input type="text" id="srcText" name="srcText" value="" maxlength="20"/>
+                            <button type="button" id="btnSearch" name="btnSearch">Search</button>
+                        </div>
+                    </form>
+                    <ul class="patent_list">
+
+                        <li>
+                            <span class="date">2020-03-05</span>
+                            <p style="white-space:pre;line-height:18px;font-size:11pt;">Nat Commun. 2020 Feb 28;11(1):1137
+
+                                Annexin A5 as an immune checkpoint inhibitor and tumor-homing molecule for cancer treatment.
+
+                                Kang TH1, Park JH1, Yang A2,3, Park HJ1, Lee SE1, Kim YS1, Jang GY1, Farmer E3, Lam B4, Park YM5, Hung CF6.
+
+                                https://www.nature.com/articles/s41467-020-14821-z</p>
+                            <!--<p>Nat Commun. 2020 Feb 28;11(1):1137
+
+Annexin A5 as an immune checkpoint inhibitor and tumor-homing molecule for cancer treatment.
+
+Kang TH1, Park JH1, Yang A2,3, Park HJ1, Lee SE1, Kim YS1, Jang GY1, Farmer E3, Lam B4, Park YM5, Hung CF6.
+
+https://www.nature.com/articles/s41467-020-14821-z</p>-->
+                        </li>
+
+                        <li>
+                            <span class="date">2020-02-12</span>
+                            <p style="white-space:pre;line-height:18px;font-size:11pt;">Angew Chem Int Ed Engl. 2015 Jul 6;54(28):8139-43
+
+                                Multivalent Polymer Nanocomplex Targeting Endosomal Receptor of Immune Cells for Enhanced Antitumor and Systemic Memory Response.
+
+                                Kim SY1, Heo MB1, Hwang GS2, Jung Y2, Choi DY1, Park YM3, Lim YT4.
+
+                                https://onlinelibrary.wiley.com/doi/abs/10.1002/anie.201501380 </p>
+                            <!--<p>Angew Chem Int Ed Engl. 2015 Jul 6;54(28):8139-43
+
+Multivalent Polymer Nanocomplex Targeting Endosomal Receptor of Immune Cells for Enhanced Antitumor and Systemic Memory Response.
+
+Kim SY1, Heo MB1, Hwang GS2, Jung Y2, Choi DY1, Park YM3, Lim YT4.
+
+https://onlinelibrary.wiley.com/doi/abs/10.1002/anie.201501380 </p>-->
+                        </li>
+
+                        <li>
+                            <span class="date">2020-02-12</span>
+                            <p style="white-space:pre;line-height:18px;font-size:11pt;">Sci Rep. 2016 Dec 2;6:38348
+
+                                In vivo stepwise immunomodulation using chitosan nanoparticles as a platform nanotechnology for cancer immunotherapy.
+
+                                Han HD1, Byeon Y1, Jang JH2, Jeon HN1, Kim GH1, Kim MG1, Pack CG3, Kang TH1, Jung ID1, Lim YT4, Lee YJ5, Lee JW6, Shin BC7, Ahn HJ8, Sood AK9,10,11, Park YM1.
+
+                                https://www.nature.com/articles/srep38348</p>
+                            <!--<p>Sci Rep. 2016 Dec 2;6:38348
+
+In vivo stepwise immunomodulation using chitosan nanoparticles as a platform nanotechnology for cancer immunotherapy.
+
+Han HD1, Byeon Y1, Jang JH2, Jeon HN1, Kim GH1, Kim MG1, Pack CG3, Kang TH1, Jung ID1, Lim YT4, Lee YJ5, Lee JW6, Shin BC7, Ahn HJ8, Sood AK9,10,11, Park YM1.
+
+https://www.nature.com/articles/srep38348</p>-->
+                        </li>
+
+                        <li>
+                            <span class="date">2020-02-12</span>
+                            <p style="white-space:pre;line-height:18px;font-size:11pt;">Biomaterials. 2017 Jun;130:56-66
+
+                                Synthetic vaccine nanoparticles target to lymph node triggering enhanced innate and adaptive antitumor immunity.
+
+                                Kim SY1, Noh YW1, Kang TH2, Kim JE1, Kim S1, Um SH1, Oh DB3, Park YM4, Lim YT5.
+
+                                https://www.sciencedirect.com/science/article/pii/S0142961217301837?via=ihub</p>
+                            <!--<p>Biomaterials. 2017 Jun;130:56-66
+
+Synthetic vaccine nanoparticles target to lymph node triggering enhanced innate and adaptive antitumor immunity.
+
+Kim SY1, Noh YW1, Kang TH2, Kim JE1, Kim S1, Um SH1, Oh DB3, Park YM4, Lim YT5.
+
+https://www.sciencedirect.com/science/article/pii/S0142961217301837?via=ihub</p>-->
+                        </li>
+
+                        <li>
+                            <span class="date">2020-02-12</span>
+                            <p style="white-space:pre;line-height:18px;font-size:11pt;">Nat Commun. 2019 Aug 20;10(1):3745
+
+                                Syringeable immunotherapeutic nanogel reshapes tumor microenvironment and prevents tumor metastasis and recurrence.
+
+                                Song C1, Phuengkham H1, Kim YS2, Dinh VV1, Lee I1, Shin IW1, Shin HS1, Jin SM1, Um SH1, Lee H3, Hong KS3, Jin SM4, Lee E4, Kang TH5, Park YM6, Lim YT7.
+
+                                https://www.nature.com/articles/s41467-019-11730-8</p>
+                            <!--<p>Nat Commun. 2019 Aug 20;10(1):3745
+
+Syringeable immunotherapeutic nanogel reshapes tumor microenvironment and prevents tumor metastasis and recurrence.
+
+Song C1, Phuengkham H1, Kim YS2, Dinh VV1, Lee I1, Shin IW1, Shin HS1, Jin SM1, Um SH1, Lee H3, Hong KS3, Jin SM4, Lee E4, Kang TH5, Park YM6, Lim YT7.
+
+https://www.nature.com/articles/s41467-019-11730-8</p>-->
+                        </li>
+
+                        <li>
+                            <span class="date">2020-02-12</span>
+                            <p style="white-space:pre;line-height:18px;font-size:11pt;">ACS Nano. 2019 Nov 26;13(11):12671-12686
+
+                                Lyophilizable and Multifaceted Toll-like Receptor 7/8 Agonist-Loaded Nanoemulsion for the Reprogramming of Tumor Microenvironments and Enhanced Cancer Immunotherapy.
+
+                                Kim SY1, Kim S1, Kim JE1, Lee SN1, Shin IW1, Shin HS1, Jin SM1, Noh YW2, Kang YJ2, Kim YS3, Kang TH3, Park YM3, Lim YT1.
+
+                                https://pubs.acs.org/doi/10.1021/acsnano.9b04207</p>
+                            <!--<p>ACS Nano. 2019 Nov 26;13(11):12671-12686
+
+Lyophilizable and Multifaceted Toll-like Receptor 7/8 Agonist-Loaded Nanoemulsion for the Reprogramming of Tumor Microenvironments and Enhanced Cancer Immunotherapy.
+
+Kim SY1, Kim S1, Kim JE1, Lee SN1, Shin IW1, Shin HS1, Jin SM1, Noh YW2, Kang YJ2, Kim YS3, Kang TH3, Park YM3, Lim YT1.
+
+https://pubs.acs.org/doi/10.1021/acsnano.9b04207</p>-->
+                        </li>
+
+                    </ul>
+                    <div class="list_page"><button type="button" class="btn_first">맨앞</button><button type="button" class="btn_prev">이전</button><ul><li class="active"><a href="#">1</a></li></ul><button type="button" class="btn_next">다음</button><button type="button" class="btn_last">맨뒤</button></div>				</div>
+            </div>
+        </div>
+    </div>
+    <div id="A_Footer">
+        <div class="inner">
+
+            <img class="ft_logo" src="images/common/logo.png" alt="DanDi Bioscience" />
+
+            <div class="ft_txt">
+
+                <span>CEO of DanDi Bioscience Inc. : Yeong-Min Park</span>
+
+                <span>Business license number : 677-88-00337</span>
+
+                <span><a href="http://ethics-hlbgroup.com/" target="_blank" >Ethical Management(Cyber ​​Report)</a></span>
+
+                <p class="copy">CopyrightⓒDanDi Bioscience. ALL RIGHTS RESERVED</p>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

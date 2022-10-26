@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<title>DanDi Bioscience</title>
+	<link href="images/common/logo_title.png" rel="shortcut icon" type="image/x-icon">
+<link rel="stylesheet" href="_css/layout.css" />
+<script src="js/jquery-1.11.3.min.js"></script>
+<script src="js/jquery-animate-css-rotate-scale.js"></script>
+<script>
+$(document).ready(function(){
+	// 상단 헤더 이펙트
+	// window.onscroll = function(){
+	// 	if($(document).scrollTop() > 1){
+	// 		$(".header_wrap").addClass("indicator");
+	// 	}else{
+	// 		$(".header_wrap").removeClass("indicator");
+	// 	}
+	// }
+	$(".gnb > li").mouseover (function(){
+		$(".header_wrap").addClass("indicator");
+	});
+
+	$("#A_Header").mouseleave (function(){
+		if(!$(document).scrollTop() > 1){
+			$(".header_wrap").removeClass("indicator");
+		}
+	});
+	// PC 메뉴 오픈
+	$(".gnb_wrap .gnb > li").on('mouseover', function(){
+		$(this).addClass('on');
+		$(this).find('.lnb').stop().slideDown();
+	}).on('mouseout',function(){
+		$(this).removeClass('on');
+		$(this).find('.lnb').stop().slideUp();
+	});
+
+	// 언어 마우스오버
+	$('.util .lang_wrap a').mouseenter(function(){
+		$(this).text('ENG');
+	});
+	$('.util .lang_wrap a').mouseleave(function(){
+		$(this).text('KOR');
+	});
+	var posY;
+	function bodyFreezeScroll() {
+		posY = $(window).scrollTop();
+		$("html").css("position","fixed");
+		$("html").css("top",-posY);
+	}
+	function bodyUnfreezeScroll() {
+		$("html").css("position","static");
+		posY = $(window).scrollTop(posY);
+	}
+	// 사이트맵 오픈
+	$('.btn_sitemap').click(function(){
+		$('.sitemap_wrap').fadeIn();
+		bodyFreezeScroll();
+	});
+	$('.sitemap_wrap .btn_close').click(function(){
+		$('.sitemap_wrap').fadeOut();
+		bodyUnfreezeScroll();
+	});
+	// menu open
+	menu_bt = 0;
+	$('.menubar').click(function(){
+		if( menu_bt == 0 ) {
+			bodyFreezeScroll();
+			$('.menubar li:eq(0)').animate({'rotate':'45deg','top':'5px'},300);
+			$('.menubar li:eq(1)').fadeOut();
+			$('.menubar li:eq(2)').animate({'rotate':'-45deg','top':'5px'},300);
+			$('.menubar li').css('background-color', '#fff');
+			$('.full_wrap').css('right', '0');
+			menu_bt = 1;
+		} else if( menu_bt == 1 ) {
+			bodyUnfreezeScroll();
+			$('.menubar li:eq(0)').animate({'rotate':'0','top':'0'},300);
+			$('.menubar li:eq(1)').fadeIn();
+			$('.menubar li:eq(2)').animate({'rotate':'0','top':'10px'},300);
+			$('.menubar li').removeAttr('style');
+			$('.full_wrap').css('right', '-80%');
+			menu_bt = 0;
+		}
+	});
+	// 모바일 메뉴
+	$('.full_wrap .gnb > li').click(function(){
+		$(this).addClass('on');
+		$(this).children('.lnb').slideToggle();
+		$(this).siblings().children('.lnb').slideUp();
+		$(this).siblings().removeClass("on");
+	});
+});
+</script>
+	<!-- s: 현재페이지에만 적용할 특정 스크립트 추가영역 -->
+	<link rel="stylesheet" href="_css/sub.css" />
+	<script>
+		$(document).ready(function() {
+		$('.nav_sub').click(function(){
+				$('.drop_box').slideToggle();
+			});
+		});
+	</script>
+	<!-- e: 현재페이지에만 적용할 특정 스크립트 추가영역 -->
+</head>
+<body>
+
+<div id="A_Wrap">
+	<div id="A_Header">
+		<div class="header_wrap indicator">
+
+
+			<h1 class="logo">
+
+				<a href="index.html">DanDi Bioscience</a>
+
+			</h1>
+
+			<div class="gnb_wrap">
+
+				<ul class="gnb">
+
+					<li>
+
+						<a href="index.html" class="depth1">HOME</a>
+
+					</li>
+
+					<li>
+
+						<p class="depth1">ABOUT US</p>
+
+						<ul class="lnb">
+
+							<li><a href="company.html">회사소개</a></li>
+
+							<li><a href="ceo.html"><span>CEO</span> 인사말</a></li>
+
+							<li><a href="esg.html">ESG 경영</a></li>
+
+							<li><a href="organization.html">조직도</a></li>
+
+
+
+						</ul>
+
+					</li>
+
+					<li>
+
+						<p class="depth1">WORK</p>
+
+						<ul class="lnb">
+
+							<li><a href="platform.html">핵심 기술</a></li>
+
+							<li><a href="pipeline.html">파이프라인</a></li>
+
+							<li><a href="patent.html">주요 실적</a></li>
+
+						</ul>
+
+					</li>
+
+					<li>
+
+						<p class="depth1">PR</p>
+
+						<ul class="lnb">
+
+							<li><a href="news.html">뉴스</a></li>
+
+							<li><a href="notice.html">공지사항</a></li>
+
+						</ul>
+
+					</li>
+
+					<li>
+
+						<p class="depth1">CONTACT US</p>
+
+						<ul class="lnb">
+
+							<li><a href="contact.html">오시는길</a></li>
+
+						</ul>
+
+					</li>
+
+				</ul>
+
+			</div>
+
+			<div class="util">
+
+				<div class="lang_wrap">
+
+					<a href="/eng/index.html">KOR</a>
+
+				</div>
+
+				<button type="button" class="btn_sitemap">사이트맵</button>
+
+			</div>
+
+			<div class="sitemap_wrap">
+
+				<div class="inner">
+
+					<strong class="sitemap_logo">
+
+						<a href="index.html">DanDi Bioscience</a>
+
+					</strong>
+
+					<ul class="sitemap_list">
+
+						<li>
+
+							<p>ABOUT US</p>
+
+							<ul>
+
+								<li><a href="company.html">회사소개</a></li>
+
+								<li><a href="ceo.html"><span>CEO</span> 인사말</a></li>
+
+								<li><a href="esg.html">ESG 경영</a></li>
+
+								<li><a href="organization.html">조직도</a></li>
+
+							</ul>
+
+						</li>
+
+						<li>
+
+							<p>WORK</p>
+
+							<ul>
+
+
+								<li><a href="platform.html">핵심 기술</a></li>
+
+								<li><a href="pipeline.html">파이프라인</a></li>
+
+								<li><a href="patent.html">주요 실적</a></li>
+
+							</ul>
+
+						</li>
+
+						<li>
+
+							<p>PR</p>
+
+							<ul>
+
+								<li><a href="news.html">뉴스</a></li>
+
+								<li><a href="notice.html">공지사항</a></li>
+
+							</ul>
+
+						</li>
+
+						<li>
+
+							<p>CONTACT US</p>
+
+							<ul>
+
+								<li><a href="contact.html">오시는길</a></li>
+
+							</ul>
+
+						</li>
+
+					</ul>
+
+				</div>
+
+				<button type="button" class="btn_close">닫기</button>
+
+			</div>
+
+			<ul class="menubar">
+
+				<li></li>
+
+				<li></li>
+
+				<li></li>
+
+			</ul>
+
+			<div class="full_wrap">
+
+				<div class="lang_wrap">
+
+					<a href="/eng/index.html">ENG</a>
+
+				</div>
+
+				<ul class="gnb">
+
+					<li>
+
+						<a href="/index.html" class="depth1">HOME</a>
+
+					</li>
+
+					<li>
+
+						<p class="depth1">ABOUT US</p>
+
+						<ul class="lnb">
+
+							<li><a href="company.html">회사소개</a></li>
+
+							<li><a href="ceo.html"><span>CEO</span> 인사말</a></li>
+
+							<li><a href="esg.html">ESG 경영</a></li>
+
+							<li><a href="organization.html">조직도</a></li>
+						</ul>
+
+					</li>
+
+					<li>
+
+						<p class="depth1">WORK</p>
+
+						<ul class="lnb">
+
+							<li><a href="platform.html">핵심 기술</a></li>
+
+							<li><a href="pipeline.html">파이프라인</a></li>
+
+							<li><a href="patent.html">주요 실적</a></li>
+
+
+						</ul>
+
+					</li>
+
+					<li>
+
+						<p class="depth1">PR</p>
+
+						<ul class="lnb">
+
+							<li><a href="news.html">뉴스</a></li>
+
+							<li><a href="notice.html">공지사항</a></li>
+
+						</ul>
+
+					</li>
+
+					<li>
+
+						<p class="depth1">CONTACT US</p>
+
+						<ul class="lnb">
+
+							<li><a href="contact.html">오시는길</a></li>
+
+						</ul>
+
+					</li>
+
+				</ul>
+
+			</div>
+
+		</div>
+	</div>
+
+	<div id="A_Container_Wrap">
+		<div class="sub_visual sub_visual02">
+			<div class="inner">
+				<strong>PLATFORM TECHNOLOGY</strong>
+				<p>단디바이오사이언스의 혁신적인 기술을 소개합니다.</p>
+			</div>
+		</div>
+		<div class="nav_wrap">
+			<ul>
+				<li><a href="index.html">HOME</a></li>
+				<li><p>WORK</p></li>
+				<li class="nav_sub">
+					<p>핵심 기술</p>
+					<ul class="drop_box">
+						<li><a href="pipeline.html">파이프라인</a></li>
+						<li><a href="patent.html">주요 실적</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<div id="A_Container">
+			<div class="sub_contents pb0 platform">
+				<div class="platform_box platform_box01">
+					<div class="inner">
+						<div class="txt_area">
+							<em>** ppt 18,57번 자료 추가 DD-S052</em>
+							<h4>패혈증/슈퍼박테리아 치료제</h4>
+							<p>항생제 처리 시 그람 음성균 사멸과정 중 방출되는 내독소에 의한 2차 면역반응을 제어하기 위해서 본 연구팀은 POLYMYXIN B (독성의 제한으로 사용제한)처럼 내독소에 결합하는 특이적인 신규 펩타이드 DD-S052를 발굴하여
+								내독소를 포함하고 있는 그람 음성균 뿐만 아니라 사회적으로 큰 문제를 일으키고 있는 수퍼박테리아에 대한 치료제로서 사용하고자 합니다.
+							</p>
+						</div>
+						<div class="img_area">
+							<ul class="dds052_list">
+								<li>
+									<strong>DD-S052 비처리</strong>
+									<div class="img_box">
+										<img src="images/sub/dds052_img01.jpg" />
+									</div>
+								</li>
+								<li>
+									<strong>DD-S052 처리</strong>
+									<div class="img_box">
+										<img src="images/sub/dds052_img02.jpg" />
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="platform_box platform_box02 bg_gray">
+					<div class="inner">
+						<div class="txt_area">
+							<em>DD-A279</em>
+							<h4>알츠하이머 치매 치료제</h4>
+							<p>내용 추가 필요
+							</p>
+						</div>
+						<div class="img_area">
+							<ul class="explain_box">
+								<li>
+									<img src="images/sub/ddls052_img01.jpg">
+									<div class="txt_box">
+										<p>내용 추가 필요</p>
+									</div>
+								</li>
+								<li>
+									<img src="images/sub/ddls052_ddsb.png">
+									<div class="txt_box02">
+										<p>내용 추가 필요</p>
+									</div>
+								</li>
+								<li>
+									<img src="images/sub/ddls052_img02.jpg">
+									<div class="txt_box">
+										<p>내용 추가 필요</p>
+									</div>
+								</li>
+								<li>
+									<div class="txt_box02">
+										<p>내용 추가 필요</p>
+									</div>
+								</li>
+								<li>
+									<img src="images/sub/ddls052_img03.jpg">
+									<div class="txt_box">
+										<p>내용 추가 필요</p>
+									</div>
+								</li>
+							</ul>
+							<ul class="icon_box">
+								<li><p>: 내용 차트 변경 필요</p></li>
+								<li><p>: 내용 차트 변경 필요</p></li>
+								<li><p>: 내용 차트 변경 필요</p></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="platform_box platform_box03">
+					<div class="inner">
+						<div class="txt_area">
+							<em>DD-A514</em>
+							<h4>알츠하이머 치매 체외 진단 키트</h4>
+							<p>내용 추가 필요</p>
+						</div>
+						<div class="img_area">
+							<ul>
+								<li class="img_box">
+									<img src="images/sub/dddimmdv_img01.jpg">
+								</li>
+								<li class="txt_box">
+									<strong>내용 추가 필요</strong>
+									<img src="images/sub/dddimmdv_icon.png">
+									<span>내용 추가 필요</span>
+								</li>
+								<li class="img_box">
+									<img src="images/sub/dddimmdv_img02.jpg">
+								</li>
+								<li class="txt_box">
+									<img src="images/sub/dddimmdv_icon.png">
+									<span>내용 추가 필요</span>
+								</li>
+								<li class="img_box">
+									<img src="images/sub/dddimmdv_img03.jpg">
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<div class="platform_box platform_box06 bg_gray">
+					<div class="inner">
+						<div class="txt_area">
+							<em>DD-G001</em>
+							<h4>숙취해소제</h4>
+							<p>녹차추출물과 γ-PGA 혼합물을 이용하여 탁월한 숙취해소효과를 보여줍니다.</p>
+						</div>
+						<div class="img_area">
+							<ul class="ddg001_top">
+								<li>
+									<div class="img_box">
+										<img src="images/sub/hangover_img01.png">
+									</div>
+									<div class="txt_box">
+										<strong>녹차추출물</strong>
+										<ul>
+											<li><p>카테킨은 녹차의 떫은 맛을 내는 성분</p></li>
+											<li><p>폴리페놀의 일종으로 체지방 감소, 항산화, 혈중콜레스테롤 개선에 도움</p></li>
+										</ul>
+									</div>
+								</li>
+								<li>
+									<div class="img_box">
+										<img src="images/sub/hangover_img02.png">
+									</div>
+									<div class="txt_box">
+										<strong>γ-PGA (폴리감마글루탐산)</strong>
+										<ul>
+											<li><p>폴리감마글루탐산은 청국장의 점액성 물질</p></li>
+											<li><p>생리활성 효과를 보유한 펩타이드 성분의 고분자</p></li>
+										</ul>
+									</div>
+								</li>
+							</ul>
+							<div class="ddg001_composite">
+								<div class="tit"><strong>녹차추출물과 γ-PGA의 조성물</strong></div>
+								<ul class="composite_list">
+									<li>
+										<div class="img_box">
+											<img src="images/sub/ypga_icon01.png">
+										</div>
+										<div class="txt_box">
+											<strong>과학적으로 입증</strong>
+											<p>SCI급 국외 논문으로 입증된 알코올 흡수 억제 기전</p>
+										</div>
+									</li>
+									<li>
+										<div class="img_box">
+											<img src="images/sub/ypga_icon02.png">
+										</div>
+										<div class="txt_box">
+											<strong>탁월한 효능</strong>
+											<p>동물실험과 임상시험을 통해 우수성 확인</p>
+										</div>
+									</li>
+									<li>
+										<div class="img_box">
+											<img src="images/sub/ypga_icon03.png">
+										</div>
+										<div class="txt_box">
+											<strong>기술 차별화</strong>
+											<p>위장관 내에서 혈중으로 알코올 흡수를 근본적으로 억제</p>
+										</div>
+									</li>
+									<li>
+										<div class="img_box">
+											<img src="images/sub/ypga_icon04.png">
+										</div>
+										<div class="txt_box">
+											<strong>숙취해소 효과의 지속성</strong>
+											<p>음주 후 3시간까지 효과가 지속</p>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="A_Footer">
+	<div class="inner">
+	<img class="ft_logo" src="images/common/logo.png" alt="DanDi Bioscience" />
+	<div class="ft_txt">
+		<span>단디바이오사이언스 주식회사 대표자 : 박영민</span>
+		<span>사업자등록번호 : 677-88-00337</span>
+		<span><a href="http://ethics-hlbgroup.com/" target="_blank" >윤리경영(사이버제보)</a></span>
+		<p class="copy">CopyrightⓒDanDi Bioscience. ALL RIGHTS RESERVED</p>
+	</div>
+</div>
+	</div>
+</div>
+</body>
+</html>

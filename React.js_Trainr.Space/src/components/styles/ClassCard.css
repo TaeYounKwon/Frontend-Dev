@@ -1,0 +1,49 @@
+
+.btn-custom-classSelc{
+  margin-top: 10px !important;
+  height: 70px !important;
+  width: 250px !important;
+    background-color: grey!important;
+    color:  white;
+    font-size: 32px !important;
+    font-weight: bold;
+}
+
+
+/* Tablet */
+@media screen and (min-width:961px) and (max-width: 1200px) {
+    
+}
+
+
+/* Tablet  - Some mobile */
+@media screen and (min-width:881px) and (max-width: 960px) 
+{
+    
+  
+
+}
+
+
+/* tablet to some mobile*/
+@media screen and (min-width:480px) and (max-width: 880px) 
+{
+  
+
+ 
+ 
+  
+}
+
+
+/* Mobile1 */
+@media screen  and (min-width:400px) and (max-width:480px) {
+ 
+    
+}
+
+/* Mobile2 */
+@media screen  and (max-width:399px) {
+  
+
+}

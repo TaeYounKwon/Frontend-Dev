@@ -1,0 +1,223 @@
+.input-post-top {
+  width: 500px !important;
+  height: 40px !important;
+}
+
+.btn-custom-post {
+  width: 80px !important;
+  height: 40px !important;
+  background-color: #2d4471 !important;
+  font-size: 20px !important;
+  color: white;
+  font-weight: bold;
+  margin-left: 20px !important;
+}
+
+.icon-userpost {
+  height: 40px !important;
+  width: 40px !important;
+  margin-left: -20px !important;
+  margin-right: 5px !important;
+}
+
+.font-custom-username {
+  font-size: 24px !important;
+  font-weight: bold;
+  margin-top: 1px !important;
+  color: #2d4471 !important;
+}
+
+.btn-custom-postClose {
+  margin-left: 80px;
+  margin-top: -10px !important;
+  margin-right: -20px !important;
+}
+.icon-postClose {
+  height: 20px !important;
+  width: 20px !important;
+}
+.font-custom-post {
+  text-align: start !important;
+  max-width: 500px !important;
+  font-size: 18px !important;
+  font-weight: bold !important;
+  margin-left: -13px !important;
+  margin-top: -10px !important;
+  margin-bottom: 20px !important;
+  align-self: flex-start;
+  word-wrap: normal !important;
+}
+
+/* tablet to some mobile*/
+@media screen and (min-width: 600px) and (max-width: 880px) {
+  .input-post-top {
+    width: 55vw !important;
+    height: 40px !important;
+  }
+
+  .btn-custom-post {
+    width: 80px !important;
+    height: 40px !important;
+    background-color: #2d4471 !important;
+    font-size: 20px !important;
+    color: white;
+    font-weight: bold;
+    margin-left: 20px !important;
+  }
+
+  .icon-userpost {
+    height: 40px !important;
+    width: 40px !important;
+    margin-left: -20px !important;
+    margin-right: 5px !important;
+  }
+
+  .font-custom-username {
+    font-size: 24px !important;
+    font-weight: bold;
+    margin-top: 1px !important;
+    color: #2d4471 !important;
+  }
+
+  .btn-custom-postClose {
+    margin-left: 80px;
+    margin-top: -10px !important;
+    margin-right: -20px !important;
+  }
+  .icon-postClose {
+    height: 20px !important;
+    width: 20px !important;
+  }
+  .font-custom-post {
+    text-align: start !important;
+    max-width: 500px !important;
+    font-size: 18px !important;
+    font-weight: bold !important;
+    margin-left: -13px !important;
+    margin-top: -10px !important;
+    margin-bottom: 20px !important;
+    align-self: flex-start;
+    word-wrap: normal !important;
+  }
+}
+
+@media screen and (min-width: 400px) and (max-width: 599px) {
+  .input-post-top {
+    width: 55vw !important;
+    height: 30px !important;
+  }
+
+  .btn-custom-post {
+    width: 15vw !important;
+    height: 30px !important;
+    background-color: #2d4471 !important;
+    font-size: 18px !important;
+    color: white;
+    font-weight: bold;
+    margin-left: 20px !important;
+  }
+
+  .icon-userpost {
+    height: 40px !important;
+    width: 40px !important;
+    margin-left: -20px !important;
+    margin-right: 5px !important;
+  }
+
+  .font-custom-username {
+    font-size: 24px !important;
+    font-weight: bold;
+    margin-top: 1px !important;
+    color: #2d4471 !important;
+  }
+
+  .btn-custom-postClose {
+    margin-left: 80px;
+    margin-top: -10px !important;
+    margin-right: -20px !important;
+  }
+  .icon-postClose {
+    height: 20px !important;
+    width: 20px !important;
+  }
+  .font-custom-post {
+    text-align: start !important;
+    max-width: 500px !important;
+    font-size: 18px !important;
+    font-weight: bold !important;
+    margin-left: -13px !important;
+    margin-top: -10px !important;
+    margin-bottom: 20px !important;
+    align-self: flex-start;
+    word-wrap: normal !important;
+  }
+}
+
+@media screen and (min-width: 400px) and (max-width: 480px) {
+  .font-custom-post {
+    text-align: start !important;
+
+    font-size: 3vw !important;
+    font-weight: bold !important;
+    margin-left: -13px !important;
+    margin-top: -10px !important;
+    margin-bottom: 20px !important;
+    align-self: flex-start;
+    word-wrap: normal !important;
+  }
+}
+
+/* Mobile2 */
+@media screen and (max-width: 399px) {
+  .input-post-top {
+    width: 55vw !important;
+    height: 30px !important;
+    font-size: 4vw !important;
+  }
+
+  .btn-custom-post {
+    width: 15vw !important;
+    height: 30px !important;
+    background-color: #2d4471 !important;
+    font-size: 4vw !important;
+    color: white;
+    font-weight: bold;
+    margin-left: 20px !important;
+  }
+
+  .icon-userpost {
+    height: 30px !important;
+    width: 30px !important;
+    margin-left: -20px !important;
+    margin-right: 5px !important;
+  }
+
+  .font-custom-username {
+    font-size: 24px !important;
+    font-weight: bold;
+    margin-top: 1px !important;
+    color: #2d4471 !important;
+  }
+
+  .btn-custom-postClose {
+    margin-left: 80px;
+    margin-top: -10px !important;
+    margin-right: -20px !important;
+  }
+  .icon-postClose {
+    height: 20px !important;
+    width: 20px !important;
+  }
+
+  .font-custom-post {
+    text-align: start !important;
+
+    font-size: 3vw !important;
+    font-weight: bold !important;
+    margin-left: -13px !important;
+    margin-top: -10px !important;
+    margin-bottom: 20px !important;
+    align-self: flex-start;
+    word-wrap: normal !important;
+  }
+}

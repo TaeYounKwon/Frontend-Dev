@@ -1,0 +1,27 @@
+/* App Setting*/
+.App {
+  background-color: #eaefe0;
+  min-height: 100vh;
+  font-size: calc(10px + 2vmin);
+  color: #201f1e78; 
+  font-family: 'Courier';
+  font-weight: 400;
+  font-size: 28px;
+}
+
+.link-unstyled, .link-unstyled:link, .link-unstyled:hover {
+  color: inherit; 
+  text-decoration: inherit;
+}
+
+.logo{
+  width: 4em;
+}
+
+.lead{
+  color:black;
+}
+
+.form-control{
+  text-align: center;
+}

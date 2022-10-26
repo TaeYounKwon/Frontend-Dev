@@ -1,0 +1,42 @@
+input AMPLIFY { globalAuthRule: AuthRule = { allow: public } } # FOR TESTING ONLY!
+
+type User @model {
+  id: ID!
+  email: String!
+  firstName: String
+  lastName: String
+  isTrainer: Boolean
+  classes: [Class] @manyToMany(relationName: "ClassUser")
+}
+
+type Class @model {
+  id: ID!
+  name: String!
+  instructor: ID!
+  description: String!
+  posts: [Post] @hasMany
+  files: [File] @hasMany
+  students: [User] @manyToMany(relationName: "ClassUser")
+}
+
+type Post @model {
+  id: ID!
+  title: String!
+  username: String
+  class: Class @belongsTo 
+  comments: [Comment] @hasMany
+}
+
+type Comment @model {
+  id: ID!
+  content: String!
+  post: Post @belongsTo
+  username: String
+}
+
+type File @model {
+  id: ID!
+  name: String!
+  link: String!
+  class: Class @belongsTo
+}

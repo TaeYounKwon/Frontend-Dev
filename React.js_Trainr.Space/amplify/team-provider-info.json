@@ -1,0 +1,58 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-trainrspace-dev-144132-authRole",
+      "UnauthRoleArn": "arn:aws:iam::353076832154:role/amplify-trainrspace-dev-144132-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::353076832154:role/amplify-trainrspace-dev-144132-authRole",
+      "Region": "us-west-2",
+      "DeploymentBucketName": "amplify-trainrspace-dev-144132-deployment",
+      "UnauthRoleName": "amplify-trainrspace-dev-144132-unauthRole",
+      "StackName": "amplify-trainrspace-dev-144132",
+      "StackId": "arn:aws:cloudformation:us-west-2:353076832154:stack/amplify-trainrspace-dev-144132/9b96b430-860b-11ec-b999-0a2c5280ed39",
+      "AmplifyAppId": "d11phb4hkbl32m"
+    },
+    "categories": {
+      "auth": {
+        "trainrspacec03f8e1f": {}
+      }
+    }
+  },
+  "frontdev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-trainrspace-frontdev-120522-authRole",
+      "UnauthRoleArn": "arn:aws:iam::353076832154:role/amplify-trainrspace-frontdev-120522-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::353076832154:role/amplify-trainrspace-frontdev-120522-authRole",
+      "Region": "us-west-2",
+      "DeploymentBucketName": "amplify-trainrspace-frontdev-120522-deployment",
+      "UnauthRoleName": "amplify-trainrspace-frontdev-120522-unauthRole",
+      "StackName": "amplify-trainrspace-frontdev-120522",
+      "StackId": "arn:aws:cloudformation:us-west-2:353076832154:stack/amplify-trainrspace-frontdev-120522/768197d0-db94-11ec-856e-065671771de7",
+      "AmplifyAppId": "d11phb4hkbl32m"
+    },
+    "categories": {
+      "auth": {
+        "trainrspacea98d4016": {},
+        "true": {}
+      }
+    }
+  },
+  "backdev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-trainrspace-backdev-134707-authRole",
+      "UnauthRoleArn": "arn:aws:iam::353076832154:role/amplify-trainrspace-backdev-134707-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::353076832154:role/amplify-trainrspace-backdev-134707-authRole",
+      "Region": "us-west-2",
+      "DeploymentBucketName": "amplify-trainrspace-backdev-134707-deployment",
+      "UnauthRoleName": "amplify-trainrspace-backdev-134707-unauthRole",
+      "StackName": "amplify-trainrspace-backdev-134707",
+      "StackId": "arn:aws:cloudformation:us-west-2:353076832154:stack/amplify-trainrspace-backdev-134707/ad4aad20-dba2-11ec-8136-06c064050915",
+      "AmplifyAppId": "d11phb4hkbl32m"
+    },
+    "categories": {
+      "auth": {
+        "trainrspacea98d4016": {},
+        "true": {}
+      }
+    }
+  }
+}

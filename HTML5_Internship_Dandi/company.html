@@ -1,0 +1,567 @@
+
+<!DOCTYPE html>
+
+<html lang="ko">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>DanDi Bioscience</title>
+  <link href="images/common/logo_title.png" rel="shortcut icon" type="image/x-icon">
+  <link rel="stylesheet" href="_css/layout.css" />
+  <script src="js/jquery-1.11.3.min.js"></script>
+  <script src="js/jquery-animate-css-rotate-scale.js"></script>
+  <script>
+    $(document).ready(function(){
+      // 상단 헤더 이펙트
+      // window.onscroll = function(){
+      // 	if($(document).scrollTop() > 1){
+      // 		$(".header_wrap").addClass("indicator");
+      // 	}else{
+      // 		$(".header_wrap").removeClass("indicator");
+      // 	}
+      // }
+      $(".gnb > li").mouseover (function(){
+        $(".header_wrap").addClass("indicator");
+      });
+
+      $("#A_Header").mouseleave (function(){
+        if(!$(document).scrollTop() > 1){
+          $(".header_wrap").removeClass("indicator");
+        }
+      });
+
+      // PC 메뉴 오픈
+      $(".gnb_wrap .gnb > li").on('mouseover', function(){
+        $(this).addClass('on');
+        $(this).find('.lnb').stop().slideDown();
+      }).on('mouseout',function(){
+        $(this).removeClass('on');
+        $(this).find('.lnb').stop().slideUp();
+      });
+
+
+      // 언어 마우스오버
+      $('.util .lang_wrap a').mouseenter(function(){
+        $(this).text('ENG');
+      });
+      $('.util .lang_wrap a').mouseleave(function(){
+        $(this).text('KOR');
+      });
+
+      var posY;
+      function bodyFreezeScroll() {
+        posY = $(window).scrollTop();
+        $("html").css("position","fixed");
+        $("html").css("top",-posY);
+      }
+
+      function bodyUnfreezeScroll() {
+        $("html").css("position","static");
+        posY = $(window).scrollTop(posY);
+      }
+
+      // 사이트맵 오픈
+      $('.btn_sitemap').click(function(){
+        $('.sitemap_wrap').fadeIn();
+        bodyFreezeScroll();
+      });
+      $('.sitemap_wrap .btn_close').click(function(){
+        $('.sitemap_wrap').fadeOut();
+        bodyUnfreezeScroll();
+      });
+
+      // menu open
+      menu_bt = 0;
+      $('.menubar').click(function(){
+        if( menu_bt == 0 ) {
+          bodyFreezeScroll();
+          $('.menubar li:eq(0)').animate({'rotate':'45deg','top':'5px'},300);
+          $('.menubar li:eq(1)').fadeOut();
+          $('.menubar li:eq(2)').animate({'rotate':'-45deg','top':'5px'},300);
+          $('.menubar li').css('background-color', '#fff');
+          $('.full_wrap').css('right', '0');
+          menu_bt = 1;
+        } else if( menu_bt == 1 ) {
+          bodyUnfreezeScroll();
+          $('.menubar li:eq(0)').animate({'rotate':'0','top':'0'},300);
+          $('.menubar li:eq(1)').fadeIn();
+          $('.menubar li:eq(2)').animate({'rotate':'0','top':'10px'},300);
+          $('.menubar li').removeAttr('style');
+          $('.full_wrap').css('right', '-80%');
+          menu_bt = 0;
+
+        }
+      });
+      // 모바일 메뉴
+      $('.full_wrap .gnb > li').click(function(){
+        $(this).addClass('on');
+        $(this).children('.lnb').slideToggle();
+        $(this).siblings().children('.lnb').slideUp();
+        $(this).siblings().removeClass("on");
+      });
+    });
+  </script>
+
+
+  <!-- s: 현재페이지에만 적용할 특정 스크립트 추가영역 -->
+
+  <link rel="stylesheet" href="_css/sub.css" />
+
+  <script>
+
+    $(document).ready(function() {
+
+      $('.nav_sub').click(function(){
+
+        $('.drop_box').slideToggle();
+
+      });
+
+    });
+
+  </script>
+
+  <!-- e: 현재페이지에만 적용할 특정 스크립트 추가영역 -->
+
+</head>
+
+
+
+<body>
+<div id="A_Wrap">
+  <div id="A_Header">
+    <div class="header_wrap indicator">
+
+
+      <h1 class="logo">
+
+        <a href="index.html">DanDi Bioscience</a>
+
+      </h1>
+
+      <div class="gnb_wrap">
+
+        <ul class="gnb">
+
+          <li>
+
+            <a href="index.html" class="depth1">HOME</a>
+
+          </li>
+
+          <li>
+
+            <p class="depth1">ABOUT US</p>
+
+            <ul class="lnb">
+
+              <li><a href="company.html">회사소개</a></li>
+
+              <li><a href="ceo.html"><span>CEO</span> 인사말</a></li>
+
+              <li><a href="esg.html">ESG 경영</a></li>
+
+              <li><a href="organization.html">조직도</a></li>
+
+
+
+            </ul>
+
+          </li>
+
+          <li>
+
+            <p class="depth1">WORK</p>
+
+            <ul class="lnb">
+
+              <li><a href="platform.html">핵심 기술</a></li>
+
+              <li><a href="pipeline.html">파이프라인</a></li>
+
+              <li><a href="patent.html">주요 실적</a></li>
+
+            </ul>
+
+          </li>
+
+          <li>
+
+            <p class="depth1">PR</p>
+
+            <ul class="lnb">
+
+              <li><a href="news.html">뉴스</a></li>
+
+              <li><a href="notice.html">공지사항</a></li>
+
+            </ul>
+
+          </li>
+
+          <li>
+
+            <p class="depth1">CONTACT US</p>
+
+            <ul class="lnb">
+
+              <li><a href="contact.html">오시는길</a></li>
+
+            </ul>
+
+          </li>
+
+        </ul>
+
+      </div>
+
+      <div class="util">
+
+        <div class="lang_wrap">
+
+          <a href="/eng/index.html">KOR</a>
+
+        </div>
+
+        <button type="button" class="btn_sitemap">사이트맵</button>
+
+      </div>
+
+      <div class="sitemap_wrap">
+
+        <div class="inner">
+
+          <strong class="sitemap_logo">
+
+            <a href="index.html">DanDi Bioscience</a>
+
+          </strong>
+
+          <ul class="sitemap_list">
+
+            <li>
+
+              <p>ABOUT US</p>
+
+              <ul>
+
+                <li><a href="company.html">회사소개</a></li>
+
+                <li><a href="ceo.html"><span>CEO</span> 인사말</a></li>
+
+                <li><a href="esg.html">ESG 경영</a></li>
+
+                <li><a href="organization.html">조직도</a></li>
+
+              </ul>
+
+            </li>
+
+            <li>
+
+              <p>WORK</p>
+
+              <ul>
+
+
+                <li><a href="platform.html">핵심 기술</a></li>
+
+                <li><a href="pipeline.html">파이프라인</a></li>
+
+                <li><a href="patent.html">주요 실적</a></li>
+
+              </ul>
+
+            </li>
+
+            <li>
+
+              <p>PR</p>
+
+              <ul>
+
+                <li><a href="news.html">뉴스</a></li>
+
+                <li><a href="notice.html">공지사항</a></li>
+
+              </ul>
+
+            </li>
+
+            <li>
+
+              <p>CONTACT US</p>
+
+              <ul>
+
+                <li><a href="contact.html">오시는길</a></li>
+
+              </ul>
+
+            </li>
+
+          </ul>
+
+        </div>
+
+        <button type="button" class="btn_close">닫기</button>
+
+      </div>
+
+      <ul class="menubar">
+
+        <li></li>
+
+        <li></li>
+
+        <li></li>
+
+      </ul>
+
+      <div class="full_wrap">
+
+        <div class="lang_wrap">
+
+          <a href="/eng/index.html">ENG</a>
+
+        </div>
+
+        <ul class="gnb">
+
+          <li>
+
+            <a href="/index.html" class="depth1">HOME</a>
+
+          </li>
+
+          <li>
+
+            <p class="depth1">ABOUT US</p>
+
+            <ul class="lnb">
+
+              <li><a href="company.html">회사소개</a></li>
+
+              <li><a href="ceo.html"><span>CEO</span> 인사말</a></li>
+
+              <li><a href="esg.html">ESG 경영</a></li>
+
+              <li><a href="organization.html">조직도</a></li>
+            </ul>
+
+          </li>
+
+          <li>
+
+            <p class="depth1">WORK</p>
+
+            <ul class="lnb">
+
+              <li><a href="platform.html">핵심 기술</a></li>
+
+              <li><a href="pipeline.html">파이프라인</a></li>
+
+              <li><a href="patent.html">주요 실적</a></li>
+
+
+            </ul>
+
+          </li>
+
+          <li>
+
+            <p class="depth1">PR</p>
+
+            <ul class="lnb">
+
+              <li><a href="news.html">뉴스</a></li>
+
+              <li><a href="notice.html">공지사항</a></li>
+
+            </ul>
+
+          </li>
+
+          <li>
+
+            <p class="depth1">CONTACT US</p>
+
+            <ul class="lnb">
+
+              <li><a href="contact.html">오시는길</a></li>
+
+            </ul>
+
+          </li>
+
+        </ul>
+
+      </div>
+
+    </div>
+  </div>
+
+
+  <div id="A_Container_Wrap">
+
+    <div class="sub_visual sub_visual06">
+
+      <div class="inner">
+
+        <strong>ABOUT DANDI BIOSCIENCE</strong>
+
+        <p>모든 사람의 건강을 최우선으로 생각합니다.</p>
+
+      </div>
+
+    </div>
+
+    <div class="nav_wrap">
+
+      <ul>
+
+        <li><a href="index.html">HOME</a></li>
+
+        <li><p>ABOUT US</p></li>
+
+        <li class="nav_sub">
+
+          <p>회사소개</p>
+
+          <ul class="drop_box">
+
+            <li><a href="ceo.html">CEO 인사말</a></li>
+
+            <li><a href="esg.html">ESG 경영</a></li>
+
+            <li><a href="organization.html">조직도</a></li>
+
+          </ul>
+
+        </li>
+
+      </ul>
+
+    </div>
+
+
+    <div id="A_Container">
+      <div class="sub_contents pb0 platform">
+        <div class="platform_box platform_box01">
+          <div class="inner">
+            <div class="txt_area">
+              <em style="font-size:32px">단디바이오사이언스 소개</em>
+
+              <p><br><b style="font-size:21px">단디바이오사이언스는 감염성 질병 극복을 위한 혁신적 기전연구기반 First-in-Class 바이오 신약 개발 기업입니다.
+              </b></p>
+
+            </div>
+            <div class="img_area">
+
+              <img src="images/sub/info.JPG" />
+
+            </div>
+          </div>
+        </div>
+
+        <div class="company">
+
+            <div class="company_box">
+
+            <div class="company_list">
+
+              <h3 style="font-size: 32px">단디바이오사이언스 연혁</h3>
+
+              <div class="txt_box">
+
+                <strong>도약기 (2020~)</strong>
+
+                <ul>
+                  <li class="year"><span>2023 </span>
+                    <p><b style="color:red">IPO 진입 추진</b><br>패혈증 및 슈퍼박테리아 가염 치료제 2상 진행</p>
+                  </li>
+
+                  <li class="year"><span>2023 </span><p>알츠하이머 치매 치료제 임상 1상 준비 <b style="color:red">(IPO 추진 준비)</b>
+                    <br>패혈증 및 슈퍼박테리아 가염 치료제 1상 진입 & 2상 준비</p></li>
+
+                  <li class="year"><span>2021</span><p>패혈증 및 슈퍼박테리아 감염 치료제 전임상 및 국외 IND제출</p></li>
+
+                  <li class="year"><span>2020</span><p>코넥스 상장</p>
+                    <span>&nbsp;&nbsp;&nbsp;&nbsp;</span><p><b>감염병 예방치료 기술개발과제 선정</b> (보건복지부)</p></li>
+
+                </ul>
+
+                <strong  style="margin-top:5px">성장기 (2017~2019)</strong>
+
+                <ul>
+                  <li class="year"><span>2019 </span><p>연구재단 투자연계사업 선정
+                    <br><b>혁신 신약 파이프라인 발굴 사업 선정</b></p></li>
+
+                  <li class="year"><span>2018 </span><p>최대주주변경 (넥스트사이언스)</p></li>
+
+                  <li class="year"><span>2017</span><p>기업부설연구소 신설</p></li>
+
+                </ul>
+
+                <strong  style="margin-top:5px">설립기 (2005~2016)</strong>
+
+                <ul>
+                  <li class="year"><span>2016 </span><p>단디바이오사인언스(주) 설립</p></li>
+
+                  <li class="year"><span>~2016 </span><p>기초의과학연구센터 (MRC, 과기부)</p></li>
+
+                  <li class="year"><span>2005</span><p>국가지정연구실 (NRL) / 도약연구사업 선정 (과기부)</p></li>
+
+                </ul>
+
+              </div>
+
+            </div>
+
+          </div>
+            <div class="sub_contents">
+              <div class="sub_contents pb0 platform">
+                <div class="platform_box platform_box01">
+                  <div class="inner">
+                    <div class="txt_area">
+                      <em style="font-size:32px">단디바이오사이언스 비전</em>
+
+                      <p><br><b style="font-size:21px">단디바이오사이언스는 다음을 추구합니다.
+                      </b></p>
+                      <div class="team_box" style="margin-top: 15px" >
+
+                        <img src='images/sub/vision.JPG' >
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="A_Footer">
+
+    <div class="inner">
+      <img class="ft_logo" src="images/common/logo.png" alt="DanDi Bioscience" />
+      <div class="ft_txt">
+        <span>단디바이오사이언스 주식회사 대표자 : 박영민</span>
+        <span>사업자등록번호 : 677-88-00337</span>
+        <span><a href="http://ethics-hlbgroup.com/" target="_blank" >윤리경영(사이버제보)</a></span>
+        <p class="copy">CopyrightⓒDanDi Bioscience. ALL RIGHTS RESERVED</p>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+</body>
+
+</html>
+

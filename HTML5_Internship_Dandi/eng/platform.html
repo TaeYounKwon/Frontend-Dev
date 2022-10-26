@@ -1,0 +1,980 @@
+
+<!DOCTYPE html>
+
+<html lang="ko">
+
+<head>
+
+	<meta charset="UTF-8">
+
+	<meta name="viewport" content="width=device-width">
+
+	<title>DanDi Bioscience</title>
+
+	<link rel="stylesheet" href="_css/layout.css" />
+
+	<script src="/js/jquery-1.11.3.min.js"></script>
+
+	<script src="/js/jquery-animate-css-rotate-scale.js"></script>
+
+	<script>
+
+		$(document).ready(function(){
+
+			// 상단 헤더 이펙트
+
+			// window.onscroll = function(){
+
+			// 	if($(document).scrollTop() > 1){
+
+			// 		$(".header_wrap").addClass("indicator");
+
+			// 	}else{
+
+			// 		$(".header_wrap").removeClass("indicator");
+
+			// 	}
+
+			// }
+
+			$(".gnb > li").mouseover (function(){
+
+				$(".header_wrap").addClass("indicator");
+
+			});
+
+
+
+			$("#A_Header").mouseleave (function(){
+
+				if(!$(document).scrollTop() > 1){
+
+					$(".header_wrap").removeClass("indicator");
+
+				}
+
+			});
+
+
+
+			// PC 메뉴 오픈
+
+			$(".gnb_wrap .gnb > li").on('mouseover', function(){
+
+				$(this).addClass('on');
+
+				$(this).find('.lnb').stop().slideDown();
+
+			}).on('mouseout',function(){
+
+				$(this).removeClass('on');
+
+				$(this).find('.lnb').stop().slideUp();
+
+			});
+
+
+
+
+
+			// 언어 마우스오버
+
+			$('.util .lang_wrap a').mouseenter(function(){
+
+				$(this).text('KOR');
+
+			});
+
+			$('.util .lang_wrap a').mouseleave(function(){
+
+				$(this).text('ENG');
+
+			});
+
+
+
+			var posY;
+
+			function bodyFreezeScroll() {
+
+				posY = $(window).scrollTop();
+
+				$("html").css("position","fixed");
+
+				$("html").css("top",-posY);
+
+			}
+
+
+
+			function bodyUnfreezeScroll() {
+
+				$("html").css("position","static");
+
+				posY = $(window).scrollTop(posY);
+
+			}
+
+
+
+			// 사이트맵 오픈
+
+			$('.btn_sitemap').click(function(){
+
+				$('.sitemap_wrap').fadeIn();
+
+				bodyFreezeScroll();
+
+			});
+
+			$('.sitemap_wrap .btn_close').click(function(){
+
+				$('.sitemap_wrap').fadeOut();
+
+				bodyUnfreezeScroll();
+
+			});
+
+
+
+			// menu open
+
+			menu_bt = 0;
+
+			$('.menubar').click(function(){
+
+				if( menu_bt == 0 ) {
+
+					bodyFreezeScroll();
+
+					$('.menubar li:eq(0)').animate({'rotate':'45deg','top':'5px'},300);
+
+					$('.menubar li:eq(1)').fadeOut();
+
+					$('.menubar li:eq(2)').animate({'rotate':'-45deg','top':'5px'},300);
+
+					$('.menubar li').css('background-color', '#fff');
+
+					$('.full_wrap').css('right', '0');
+
+					menu_bt = 1;
+
+				} else if( menu_bt == 1 ) {
+
+					bodyUnfreezeScroll();
+
+					$('.menubar li:eq(0)').animate({'rotate':'0','top':'0'},300);
+
+					$('.menubar li:eq(1)').fadeIn();
+
+					$('.menubar li:eq(2)').animate({'rotate':'0','top':'10px'},300);
+
+					$('.menubar li').removeAttr('style');
+
+					$('.full_wrap').css('right', '-80%');
+
+					menu_bt = 0;
+
+
+
+				}
+
+			});
+
+			// 모바일 메뉴
+
+			$('.full_wrap .gnb > li').click(function(){
+
+				$(this).addClass('on');
+
+				$(this).children('.lnb').slideToggle();
+
+				$(this).siblings().children('.lnb').slideUp();
+
+				$(this).siblings().removeClass("on");
+
+			});
+
+		});
+
+	</script>
+
+
+
+	<!-- s: 현재페이지에만 적용할 특정 스크립트 추가영역 -->
+
+	<link rel="stylesheet" href="_css/sub.css" />
+
+	<script>
+
+		$(document).ready(function() {
+
+			$('.nav_sub').click(function(){
+
+				$('.drop_box').slideToggle();
+
+			});
+
+		});
+
+	</script>
+
+	<!-- e: 현재페이지에만 적용할 특정 스크립트 추가영역 -->
+
+</head>
+
+
+
+<body>
+
+<div id="A_Wrap">
+
+	<div id="A_Header">
+
+		<div class="header_wrap indicator">
+			<h1 class="logo">
+				<a href="index.php">DanDi Bioscience</a>
+			</h1>
+			<div class="gnb_wrap">
+				<ul class="gnb">
+					<li>
+						<a href="index.php" class="depth1">HOME</a>
+					</li>
+					<li>
+						<p class="depth1">ABOUT US</p>
+						<ul class="lnb">
+							<li><a href="ceo.php">CEO'S MESSAGE</a></li>
+							<li><a href="vision.php">Vision</a></li>
+							<li><a href="organization.php">Organization chart</a></li>
+						</ul>
+					</li>
+					<li>
+						<p class="depth1">WORK</p>
+						<ul class="lnb">
+							<li><a href="platform.php">Platform Technology</a></li>
+							<li><a href="pipeline.php">Pipelines</a></li>
+							<li><a href="patent.php">Patents/Publications</a></li>
+						</ul>
+					</li>
+					<li>
+						<p class="depth1">PR</p>
+						<ul class="lnb">
+							<li><a href="news.php">NEWS</a></li>
+							<li><a href="notice.php">Notice</a></li>
+						</ul>
+					</li>
+					<li>
+						<p class="depth1">CONTACT US</p>
+						<ul class="lnb">
+							<li><a href="contact.php">Contact Us</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<div class="util">
+				<div class="lang_wrap">
+					<a href="/index.php">ENG</a>
+				</div>
+				<button type="button" class="btn_sitemap">사이트맵</button>
+			</div>
+			<div class="sitemap_wrap">
+				<div class="inner">
+					<strong class="sitemap_logo">
+						<a href="index.php">DanDi Bioscience</a>
+					</strong>
+					<ul class="sitemap_list">
+						<li>
+							<p>ABOUT US</p>
+							<ul>
+								<li><a href="ceo.php">CEO'S MESSAGE</a></li>
+								<li><a href="vision.php">Vision</a></li>
+								<li><a href="organization.php">Organization chart</a></li>
+							</ul>
+						</li>
+						<li>
+							<p>WORK</p>
+							<ul>
+								<li><a href="platform.php">Platform Technology</a></li>
+								<li><a href="pipeline.php">PIPELINES</a></li>
+								<li><a href="patent.php">Patents/Publications</a></li>
+							</ul>
+						</li>
+						<li>
+							<p>PR</p>
+							<ul>
+								<li><a href="news.php">NEWS</a></li>
+								<li><a href="notice.php">Notice</a></li>
+							</ul>
+						</li>
+						<li>
+							<p>CONTACT US</p>
+							<ul>
+								<li><a href="contact.php">Contact Us</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<button type="button" class="btn_close">Close</button>
+			</div>
+			<ul class="menubar">
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+			<div class="full_wrap">
+				<div class="lang_wrap">
+					<a href="/index.php">KOR</a>
+				</div>
+				<ul class="gnb">
+					<li>
+						<a href="#" class="depth1">HOME</a>
+					</li>
+					<li>
+						<p class="depth1">ABOUT US</p>
+						<ul class="lnb">
+							<li><a href="ceo.php">CEO GREETING</a></li>
+							<li><a href="vision.php">Vision</a></li>
+							<li><a href="organization.php">Organization chart</a></li>
+						</ul>
+					</li>
+					<li>
+						<p class="depth1">WORK</p>
+						<ul class="lnb">
+							<li><a href="platform.php">Platform Technology</a></li>
+							<li><a href="pipeline.php">Pipelines</a></li>
+							<li><a href="patent.php">Patents/Publications</a></li>
+						</ul>
+					</li>
+					<li>
+						<p class="depth1">PR</p>
+						<ul class="lnb">
+							<li><a href="news.php">NEWS</a></li>
+							<li><a href="notice.php">Notice</a></li>
+						</ul>
+					</li>
+					<li>
+						<p class="depth1">CONTACT US</p>
+						<ul class="lnb">
+							<li><a href="contact.php">Contact Us</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div id="A_Container_Wrap">
+
+		<div class="sub_visual sub_visual02">
+
+			<div class="inner">
+
+				<strong>PLATFORM TECHNOLOGY</strong>
+
+				<p>Dandi Bioscience: Introduction to innovative technologies.</p>
+
+			</div>
+
+		</div>
+
+		<div class="nav_wrap">
+
+			<ul>
+
+				<li><a href="#">HOME</a></li>
+
+				<li><p>WORK</p></li>
+
+				<li class="nav_sub">
+
+					<p>Platform Technology</p>
+
+					<ul class="drop_box">
+
+						<li><a href="pipeline.php">Pipelines</a></li>
+
+						<li><a href="patent.php">Patents/Publications</a></li>
+
+					</ul>
+
+				</li>
+
+			</ul>
+
+		</div>
+
+		<div id="A_Container">
+
+			<div class="sub_contents pb0 platform">
+
+				<div class="platform_box platform_box01">
+
+					<div class="inner">
+
+						<div class="txt_area">
+
+							<em>DD-S052</em>
+
+							<h4>Sepsis Therapeutics</h4>
+
+							<p>In order to control the secondary immune response initiated by the endotoxins released from gram-negative
+
+								bacteria during sepsis treatment by antibiotics, our research institute has recently discovered a unique candidate “DD-S052”.<br/>
+
+								<br/>
+
+								Similar to polymyxin B (limited in clinical use due to the toxicity), “DD-S052” has dual functions,
+
+								it directly kill the bacteria and binds the endotoxins released as a byproduct of the killing process.<br/>
+
+								<br/>
+
+								With low toxicity, “DD-S052” is a promising candidate to treat endotoxin releasing gram negative bacterial
+
+								infections and multidrug-resistant bacterial infections, which both are currently regarded as a serious public health issues.<br/>
+
+							</p>
+
+						</div>
+
+						<div class="img_area">
+
+							<ul class="dds052_list">
+
+								<li>
+
+									<strong>Absence of DD-S052</strong>
+
+									<div class="img_box">
+
+										<img src="images/sub/dds052_img01.png" />
+
+									</div>
+
+								</li>
+
+								<li>
+
+									<strong>Presence of DD-S052</strong>
+
+									<div class="img_box">
+
+										<img src="images/sub/dds052_img02.png" />
+
+									</div>
+
+								</li>
+
+							</ul>
+
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class="platform_box platform_box02 bg_gray">
+
+					<div class="inner">
+
+						<div class="txt_area">
+
+							<em>DD-LS052</em>
+
+							<h4>LPS removal kit</h4>
+
+							<p>Polymyxin B, is the primary commercialized component that currently being used to eliminate the endotoxins released during the
+
+								manufacturing of proteins, however, the conventional Polymyxin B is facing a huge limitation due to its toxicity,
+
+								to overcome this  disadvantage, an LPS removal kit was developed, with ability to remove endotoxin with less toxicity.</p>
+
+						</div>
+
+						<div class="img_area">
+
+							<ul class="explain_box">
+
+								<li>
+
+									<img src="images/sub/ddls052_img01.jpg">
+
+									<div class="txt_box">
+
+										<p>Endotoxin-contaminated solution </p>
+
+									</div>
+
+								</li>
+
+								<li>
+
+									<img src="images/sub/ddls052_ddsb.png">
+
+									<div class="txt_box02">
+
+										<p>Mix DD-SB
+
+											and incubate for constant time </p>
+
+									</div>
+
+								</li>
+
+								<li>
+
+									<img src="images/sub/ddls052_img02.jpg">
+
+									<div class="txt_box">
+
+										<p>Binding endotoxin with DD-SB  </p>
+
+									</div>
+
+								</li>
+
+								<li>
+
+									<div class="txt_box02">
+
+										<p>Centrifugation to
+
+											precipitate endotoxin/DD-SB
+
+										</p>
+
+									</div>
+
+								</li>
+
+								<li>
+
+									<img src="images/sub/ddls052_img03.jpg">
+
+									<div class="txt_box">
+
+										<p>Endotoxin free
+
+											solution  </p>
+
+									</div>
+
+								</li>
+
+							</ul>
+
+							<ul class="icon_box">
+
+								<li><p>: CNBr-agarose bead</p></li>
+
+								<li><p>: DD-S052</p></li>
+
+								<li><p>: DD-S052/bead complex</p></li>
+
+							</ul>
+
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class="platform_box platform_box03">
+
+					<div class="inner">
+
+						<div class="txt_area">
+
+							<em>DD-D-imMDV</em>
+
+							<h4>IMMUNO-SUPPRESSOR TARGET DRUG DELIVERY PLATFORM</h4>
+
+							<p>Immune anticancer drugs are being developed based on a drug delivery platform that can control immunosuppressive cells and
+
+								immunosuppressive factors that interfere with the anticancer activity of therapeutic immune cells in tumor microenvironments.
+
+								In particular, by overcoming the low efficiency (5-30%) of immune gateway inhibitor treatment (ICBT)  and to expand
+
+								the response patient population, we are focusing on developing immune anticancer drugs that can be delivered to tumor microenvironments.
+
+								The DD-D-imMDV pipeline, which is being developed by the company, is a new drug delivery system that overcomes
+
+								the limitations (low encapsulation efficiency, stability and drug release behavior) of existing nanoliposomes.</p>
+
+						</div>
+
+						<div class="img_area">
+
+							<ul>
+
+								<li class="img_box">
+
+									<img src="images/sub/dddimmdv_img01.jpg">
+
+								</li>
+
+								<li class="txt_box">
+
+									<strong>imMDV</strong>
+
+									<img src="images/sub/dddimmdv_icon.png">
+
+									<span>i-Vaccine TIME control</span>
+
+								</li>
+
+								<li class="img_box">
+
+									<img src="images/sub/dddimmdv_img02.jpg">
+
+								</li>
+
+								<li class="txt_box">
+
+									<img src="images/sub/dddimmdv_icon.png">
+
+									<span>ICBT</span>
+
+								</li>
+
+								<li class="img_box">
+
+									<img src="images/sub/dddimmdv_img03.jpg">
+
+								</li>
+
+							</ul>
+
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class="platform_box platform_box04 bg_gray">
+
+					<div class="inner">
+
+						<div class="txt_area">
+
+							<em>DD-A-NE(IQ)</em>
+
+							<h4>Vaccine adjuvant</h4>
+
+							<p>The immune booster is a new vaccine adjuvant that can effectively induce and enhance cellular immune response in addition
+
+								to the humoral immune response. Our DD-A-NE (IQ) series of immune boosters is being developed as an anti-cancer vaccine
+
+								pipeline by combining cancer-specific antigens. In particular, DD-A-NE (IQ) can be stored at room temperature through lyophilization,
+
+								can enhance the immunogenicity of antigens in various infectious diseases (TB, Zoster, etc.) where cellular immune
+
+								characteristics are important, and it can also be used as a vaccine adjuvant.</p>
+
+						</div>
+
+						<div class="img_area">
+
+							<ul class="ddane_list">
+
+								<li><img src="images/sub/ddane_img01.jpg"></li>
+
+								<li><img src="images/sub/ddane_img02.png"></li>
+
+							</ul>
+
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class="platform_box platform_box05">
+
+					<div class="inner">
+
+						<div class="txt_area">
+
+							<em>DD-I001</em>
+
+							<h4>Highly pathogenic influenza therapeutics</h4>
+
+							<p>Influenza virus infections cause massive social and economic losses worldwide yearly (World Bank estimates 200 trillion won;
+
+								Asia Development Bank estimates 250-300 trillion won). According to the WHO, a high-risk influenza outbreak could lead to a human catastrophe like the Spanish flu
+
+								that killed 50 million people worldwide in 1918. There are currently antiviral medications such as Tamiflu, nevertheless, Influenza viruses resistant 
+
+								to the antiviral drug are emerging, and the development of treatments addressing the high-risk influenza is still inconsequential worldwide.</p>
+
+						</div>
+
+						<li class="img_area">
+
+							<div class="a_area">
+
+								<span class="number">A</span>
+
+								<ul>
+
+									<li><img src="images/sub/ddl001_img01.jpg"><p>Highly pathogenic influenza virus(IAV) (1x10<span>5</span> pfu) <br class="m_none"/>Protein D3</p></li>
+
+									<li><img src="images/sub/ddl001_img02.jpg"></li>
+
+								</ul>
+
+							</div>
+
+							<ul class="bc_area">
+
+								<li class="b_area">
+
+									<span class="number">B</span>
+
+									<div>
+
+										<img src="images/sub/ddl001_img03.jpg">
+
+										<p>All mice infected with high risk influenza died.
+
+											Mice survived 100% when injected with DD-I001.</p>
+
+									</div>
+
+								</li>
+
+								<li class="c_area">
+
+									<span class="number">C</span>
+
+									<div>
+
+										<img src="images/sub/ddl001_img04.jpg">
+
+										<p>Approximately 97% of the viruses have been removed when injecting DD-I001 in the lungs of mice.</p>
+
+									</div>
+
+								</li>
+
+							</ul>
+
+					</div>
+
+				</div>
+
+			</div>
+
+			<div class="platform_box platform_box06 bg_gray">
+
+				<div class="inner">
+
+					<div class="txt_area">
+
+						<em>DD-G001</em>
+
+						<h4>Hangover recovery</h4>
+
+						<p>Hangover cure using a mixture of green tea extract and γ-PGA.</p>
+
+					</div>
+
+					<div class="img_area">
+
+						<ul class="ddg001_top">
+
+							<li>
+
+								<div class="img_box">
+
+									<img src="images/sub/hangover_img01.png">
+
+								</div>
+
+								<div class="txt_box">
+
+									<strong>green tea extract</strong>
+
+									<ul>
+
+										<li><p>Catechin is the component responsible for    the bitterness of green tea</p></li>
+
+										<li><p>A polyphenol that lowers body fat and improves anti-oxidation effect and blood cholesterol level</p></li>
+
+									</ul>
+
+								</div>
+
+							</li>
+
+							<li>
+
+								<div class="img_box">
+
+									<img src="images/sub/hangover_img02.png">
+
+								</div>
+
+								<div class="txt_box">
+
+									<strong>γ-PGA (polygamma glutamic acid)</strong>
+
+									<ul>
+
+										<li><p>Poly-gammaglutamic acid is the mucous substance of ‘Cheongguk-jang’</p></li>
+
+										<li><p>A polymer of amino acid biologically active with high molecular weight</p></li>
+
+									</ul>
+
+								</div>
+
+							</li>
+
+						</ul>
+
+						<div class="ddg001_composite">
+
+							<div class="tit"><strong>Green tea extract and
+
+								γ-PGA mixture </strong></div>
+
+							<ul class="composite_list">
+
+								<li>
+
+									<div class="img_box">
+
+										<img src="images/sub/ypga_icon01.png">
+
+									</div>
+
+									<div class="txt_box">
+
+										<strong>Scientifically proven </strong>
+
+										<p>Proven to have
+
+											an inhibitory effect on
+
+											alcohol absorption in <br/> a
+
+											SCI-grade paper
+
+											publication</p>
+
+									</div>
+
+								</li>
+
+								<li>
+
+									<div class="img_box">
+
+										<img src="images/sub/ypga_icon02.png">
+
+									</div>
+
+									<div class="txt_box">
+
+										<strong>Excellent efficacy</strong>
+
+										<p>Excellent effects
+
+											observed on related animal studies and
+
+											<br/>clinical trial</p>
+
+									</div>
+
+								</li>
+
+								<li>
+
+									<div class="img_box">
+
+										<img src="images/sub/ypga_icon03.png">
+
+									</div>
+
+									<div class="txt_box">
+
+										<strong>Diverge technique</strong>
+
+										<p>Sustained absorption of alcohol
+
+											absorption in the
+
+											blood within <br> the
+
+											gastrointestinal
+
+											tract </p>
+
+									</div>
+
+								</li>
+
+								<li>
+
+									<div class="img_box">
+
+										<img src="images/sub/ypga_icon04.png">
+
+									</div>
+
+									<div class="txt_box">
+
+										<strong>Persistent effect in hangover recovery</strong>
+
+										<p>The effect lasts up to 3 hours <br>after drinking</p>
+
+									</div>
+
+								</li>
+
+							</ul>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</div>
+
+<div id="A_Footer">
+
+	<div class="inner">
+
+		<img class="ft_logo" src="images/common/logo.png" alt="DanDi Bioscience" />
+
+		<div class="ft_txt">
+
+			<span>CEO of DanDi Bioscience Inc. : Yeong-Min Park</span>
+
+			<span>Business license number : 677-88-00337</span>
+
+			<span><a href="http://ethics-hlbgroup.com/" target="_blank" >Ethical Management(Cyber ​​Report)</a></span>
+
+			<p class="copy">CopyrightⓒDanDi Bioscience. ALL RIGHTS RESERVED</p>
+
+		</div>
+
+	</div>
+
+
+</div>
+
+</div>
+
+</body>
+
+</html>
+

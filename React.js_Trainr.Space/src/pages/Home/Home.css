@@ -1,0 +1,339 @@
+.bg-custom-1 {
+  background-color: #95b4a4 !important;
+}
+
+.left-side {
+  display: flex;
+  position: relative;
+  height: 500px !important;
+  width: 500px !important;
+  margin-right: 100px;
+}
+
+.right-side {
+  position: relative;
+  min-height: 400px !important;
+  min-width: 400px !important;
+  margin-top: -120px;
+  margin-left: 100px;
+  border-radius: 15px !important;
+}
+
+.logo-custom-home {
+  margin-top: -30px;
+  margin-bottom: -30px;
+}
+
+.font-text-logo {
+  font-size: 48px !important;
+  font-weight: bolder;
+}
+
+.font-logo-color {
+  color: #2d4471;
+}
+
+.font-text-main {
+  color: white;
+  font-size: 28px !important;
+  font-weight: bolder !important;
+}
+
+.font-custom-sub {
+  color: white;
+  font-size: 20px !important;
+  margin-top: 1.5vh;
+}
+
+.font-login-color {
+  color: #2d4471 !important;
+}
+
+.button-sign-up {
+  height: 70px !important;
+  width: 350px !important;
+  margin-top: 5vh;
+  font: 32px !important;
+  font-weight: bolder !important;
+  background-color: #e29500 !important;
+  border-color: #e29500 !important;
+}
+.font-signin {
+  color: white;
+  font-size: 18px !important;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+/* Homepage for trainers*/
+.m-block-subscribe {
+  width: auto !important;
+}
+
+.headerClasses {
+  color: #2d4471;
+  font-size: 48px !important;
+  font-weight: bolder;
+}
+
+/* Left-Side*/
+.left-side-subscribe {
+  display: flex;
+  position: relative;
+  height: 500px !important;
+  width: 500px !important;
+}
+
+.logo-subscribe {
+  height: 100px !important;
+  width: 100px !important;
+  position: absolute !important;
+  left: -5px !important;
+  top: -13px !important;
+}
+
+.font-logo-subscribe {
+  margin-left: 40px !important;
+  font-size: 48px !important;
+  font-weight: bolder;
+}
+
+.font-logo-color {
+  color: #2d4471;
+}
+
+.font-main {
+  color: white;
+  font-size: 32px !important;
+  margin-top: 20px !important;
+  margin-bottom: 15px !important;
+  font-weight: bolder !important;
+}
+
+.font-text-sub {
+  color: white;
+  font-size: 22px !important;
+  margin-bottom: 20px !important;
+}
+
+.input-style-subscribe {
+  height: 50px !important;
+  width: 380px !important;
+  font-size: 18px !important;
+  margin-bottom: 20px !important;
+}
+
+.button-search {
+  height: 70px !important;
+  width: 300px !important;
+  margin-top: 50px;
+  font-size: 32px !important;
+  color: #000;
+  font-weight: bolder !important;
+  background-color: #e29500 !important;
+  border-color: #e29500 !important;
+}
+
+.button-QRcode {
+  height: 70px !important;
+  width: 300px !important;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-size: 20px !important;
+  color: white !important;
+  background-color: gray;
+}
+
+/* Right Side */
+.right-side-subscribe {
+  position: relative;
+  height: auto !important;
+  width: 400px !important;
+  border-radius: 15px !important;
+}
+.listClasses {
+  margin-left: 0px !important;
+  overflow: auto !important;
+}
+
+/* Tablet  - Some mobile */
+@media screen and (min-width: 881px) and (max-width: 960px) {
+  /*Add More Here*/
+  .left-side {
+    margin-right: 10px !important;
+  }
+
+  .right-side {
+    margin-left: 10px !important;
+  }
+
+  /* Homepage for trainers*/
+  .logo-subscribe {
+    position: absolute !important;
+    left: -20px !important;
+    top: -13px !important;
+  }
+}
+
+/* tablet to some mobile*/
+@media screen and (min-width: 480px) and (max-width: 880px) {
+  .m-block {
+    position: fixed;
+    width: 100% !important;
+    height: auto !important;
+    align-items: center !important;
+    vertical-align: middle !important;
+  }
+  .left-side {
+    display: none !important;
+  }
+  .right-side {
+    min-width: none !important;
+    min-height: auto !important;
+    margin-top: auto !important;
+    margin-left: auto !important;
+  }
+
+  /* Homepage for trainers*/
+  .m-block-subscribe {
+    display: block !important;
+  }
+  .UserHeader {
+    margin-top: 0px !important;
+  }
+
+  /* Left Side */
+  .left-side-subscribe {
+    width: 400px !important;
+    position: relative !important;
+    top: -10px !important;
+  }
+
+  .logo-subscribe {
+    position: relative !important;
+    margin-left: -30px !important;
+    margin-right: -30px !important;
+    margin-top: 5px !important;
+    margin-bottom: -10px !important;
+  }
+
+  .font-logo-subscribe {
+    font-size: 45px !important;
+    margin-left: 0px !important;
+    margin-bottom: -20px !important;
+  }
+  .input-style-subscribe {
+    margin-top: -10px !important;
+    margin-bottom: -25px !important;
+  }
+  /* Right Side */
+  .right-side-subscribe {
+    margin-top: 0px !important;
+  }
+  .headerClasses {
+    display: none !important;
+  }
+  .listClasses {
+    margin-top: 20px !important;
+    height: 150px !important;
+    overflow: auto !important;
+  }
+}
+
+/* Mobile */
+@media screen and (max-width: 480px) {
+  .left-side {
+    display: none !important;
+  }
+
+  .font-logo {
+    font-size: 40px !important;
+  }
+  .font-text-main {
+    font-size: 24px !important;
+  }
+  .font-custom-sub {
+    font-size: 18px !important;
+  }
+  .font-signin {
+    font-size: 17px !important;
+  }
+
+  .button-sign-up {
+    height: 70px !important;
+    width: 300px !important;
+    margin-top: 4vh;
+    font-size: 28px !important;
+    font-weight: bolder !important;
+    background-color: #e29500 !important;
+    border-color: #e29500 !important;
+  }
+
+  /* Homepage for trainers*/
+  .UserHeader {
+    margin-top: 0px !important;
+    margin-left: -2px !important;
+    margin-right: 0px !important;
+  }
+  .m-block-subscribe {
+    margin-top: 0px !important;
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+    margin-bottom: 0px !important;
+    width: 100vw !important;
+    height: auto !important;
+  }
+  /* Left Side */
+  .left-side-subscribe {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+    width: 100vw !important;
+    position: relative !important;
+    top: -20px !important;
+    min-width: none !important;
+  }
+  .logo-subscribe {
+    width: 90px !important;
+    height: 90px !important;
+    position: relative !important;
+    margin-left: -30px !important;
+    margin-right: -30px !important;
+    margin-top: 5px !important;
+    margin-bottom: -10px !important;
+  }
+  .font-logo-subscribe {
+    font-size: 10vw !important;
+    margin-left: 0px !important;
+    margin-bottom: -20px !important;
+  }
+  .input-style-subscribe {
+    width: 80vw !important;
+  }
+  .button-search {
+    margin-top: 0px !important;
+    margin-bottom: 10px !important;
+    width: 80vw !important;
+  }
+  .button-QRcode {
+    margin-top: 0px !important;
+    margin-bottom: 10px !important;
+    width: 80vw !important;
+  }
+
+  /* Right Side */
+  .right-side-subscribe {
+    margin-top: 0px !important;
+    width: 100vw !important;
+    height: auto !important;
+  }
+  .headerClasses {
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+    display: none !important;
+  }
+  .listClasses {
+    margin-top: -2vh !important;
+    height: 15vh !important;
+    overflow: auto !important;
+  }
+}

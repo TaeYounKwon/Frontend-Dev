@@ -1,0 +1,566 @@
+
+<!DOCTYPE html>
+
+<html lang="ko">
+
+<head>
+
+	<meta charset="UTF-8">
+
+	<meta name="viewport" content="width=device-width">
+
+	<title>DanDi Bioscience</title>
+
+	<link rel="stylesheet" href="_css/layout.css" />
+
+	<script src="/js/jquery-1.11.3.min.js"></script>
+
+	<script src="/js/jquery-animate-css-rotate-scale.js"></script>
+
+	<script>
+
+		$(document).ready(function(){
+
+			// 상단 헤더 이펙트
+
+			// window.onscroll = function(){
+
+			// 	if($(document).scrollTop() > 1){
+
+			// 		$(".header_wrap").addClass("indicator");
+
+			// 	}else{
+
+			// 		$(".header_wrap").removeClass("indicator");
+
+			// 	}
+
+			// }
+
+			$(".gnb > li").mouseover (function(){
+
+				$(".header_wrap").addClass("indicator");
+
+			});
+
+
+
+			$("#A_Header").mouseleave (function(){
+
+				if(!$(document).scrollTop() > 1){
+
+					$(".header_wrap").removeClass("indicator");
+
+				}
+
+			});
+
+
+
+			// PC 메뉴 오픈
+
+			$(".gnb_wrap .gnb > li").on('mouseover', function(){
+
+				$(this).addClass('on');
+
+				$(this).find('.lnb').stop().slideDown();
+
+			}).on('mouseout',function(){
+
+				$(this).removeClass('on');
+
+				$(this).find('.lnb').stop().slideUp();
+
+			});
+
+
+
+
+
+			// 언어 마우스오버
+
+			$('.util .lang_wrap a').mouseenter(function(){
+
+				$(this).text('KOR');
+
+			});
+
+			$('.util .lang_wrap a').mouseleave(function(){
+
+				$(this).text('ENG');
+
+			});
+
+
+
+			var posY;
+
+			function bodyFreezeScroll() {
+
+				posY = $(window).scrollTop();
+
+				$("html").css("position","fixed");
+
+				$("html").css("top",-posY);
+
+			}
+
+
+
+			function bodyUnfreezeScroll() {
+
+				$("html").css("position","static");
+
+				posY = $(window).scrollTop(posY);
+
+			}
+
+
+
+			// 사이트맵 오픈
+
+			$('.btn_sitemap').click(function(){
+
+				$('.sitemap_wrap').fadeIn();
+
+				bodyFreezeScroll();
+
+			});
+
+			$('.sitemap_wrap .btn_close').click(function(){
+
+				$('.sitemap_wrap').fadeOut();
+
+				bodyUnfreezeScroll();
+
+			});
+
+
+
+			// menu open
+
+			menu_bt = 0;
+
+			$('.menubar').click(function(){
+
+				if( menu_bt == 0 ) {
+
+					bodyFreezeScroll();
+
+					$('.menubar li:eq(0)').animate({'rotate':'45deg','top':'5px'},300);
+
+					$('.menubar li:eq(1)').fadeOut();
+
+					$('.menubar li:eq(2)').animate({'rotate':'-45deg','top':'5px'},300);
+
+					$('.menubar li').css('background-color', '#fff');
+
+					$('.full_wrap').css('right', '0');
+
+					menu_bt = 1;
+
+				} else if( menu_bt == 1 ) {
+
+					bodyUnfreezeScroll();
+
+					$('.menubar li:eq(0)').animate({'rotate':'0','top':'0'},300);
+
+					$('.menubar li:eq(1)').fadeIn();
+
+					$('.menubar li:eq(2)').animate({'rotate':'0','top':'10px'},300);
+
+					$('.menubar li').removeAttr('style');
+
+					$('.full_wrap').css('right', '-80%');
+
+					menu_bt = 0;
+
+
+
+				}
+
+			});
+
+			// 모바일 메뉴
+
+			$('.full_wrap .gnb > li').click(function(){
+
+				$(this).addClass('on');
+
+				$(this).children('.lnb').slideToggle();
+
+				$(this).siblings().children('.lnb').slideUp();
+
+				$(this).siblings().removeClass("on");
+
+			});
+
+		});
+
+	</script>
+
+
+	<!-- s: 현재페이지에만 적용할 특정 스크립트 추가영역 -->
+
+	<link rel="stylesheet" href="_css/sub.css" />
+
+	<script>
+
+		$(document).ready(function() {
+
+			$('.nav_sub').click(function(){
+
+				$('.drop_box').slideToggle();
+
+			});
+
+		});
+
+	</script>
+
+	<!-- e: 현재페이지에만 적용할 특정 스크립트 추가영역 -->
+
+</head>
+
+
+
+<body>
+
+<div id="A_Wrap">
+
+	<div id="A_Header">
+
+		<div class="header_wrap indicator">
+			<h1 class="logo">
+				<a href="index.php">DanDi Bioscience</a>
+			</h1>
+			<div class="gnb_wrap">
+				<ul class="gnb">
+					<li>
+						<a href="index.php" class="depth1">HOME</a>
+					</li>
+					<li>
+						<p class="depth1">ABOUT US</p>
+						<ul class="lnb">
+							<li><a href="ceo.php">CEO'S MESSAGE</a></li>
+							<li><a href="vision.php">Vision</a></li>
+							<li><a href="organization.php">Organization chart</a></li>
+						</ul>
+					</li>
+					<li>
+						<p class="depth1">WORK</p>
+						<ul class="lnb">
+							<li><a href="platform.php">Platform Technology</a></li>
+							<li><a href="pipeline.php">Pipelines</a></li>
+							<li><a href="patent.php">Patents/Publications</a></li>
+						</ul>
+					</li>
+					<li>
+						<p class="depth1">PR</p>
+						<ul class="lnb">
+							<li><a href="news.php">NEWS</a></li>
+							<li><a href="notice.php">Notice</a></li>
+						</ul>
+					</li>
+					<li>
+						<p class="depth1">CONTACT US</p>
+						<ul class="lnb">
+							<li><a href="contact.php">Contact Us</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<div class="util">
+				<div class="lang_wrap">
+					<a href="/index.php">ENG</a>
+				</div>
+				<button type="button" class="btn_sitemap">사이트맵</button>
+			</div>
+			<div class="sitemap_wrap">
+				<div class="inner">
+					<strong class="sitemap_logo">
+						<a href="index.php">DanDi Bioscience</a>
+					</strong>
+					<ul class="sitemap_list">
+						<li>
+							<p>ABOUT US</p>
+							<ul>
+								<li><a href="ceo.php">CEO'S MESSAGE</a></li>
+								<li><a href="vision.php">Vision</a></li>
+								<li><a href="organization.php">Organization chart</a></li>
+							</ul>
+						</li>
+						<li>
+							<p>WORK</p>
+							<ul>
+								<li><a href="platform.php">Platform Technology</a></li>
+								<li><a href="pipeline.php">PIPELINES</a></li>
+								<li><a href="patent.php">Patents/Publications</a></li>
+							</ul>
+						</li>
+						<li>
+							<p>PR</p>
+							<ul>
+								<li><a href="news.php">NEWS</a></li>
+								<li><a href="notice.php">Notice</a></li>
+							</ul>
+						</li>
+						<li>
+							<p>CONTACT US</p>
+							<ul>
+								<li><a href="contact.php">Contact Us</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<button type="button" class="btn_close">Close</button>
+			</div>
+			<ul class="menubar">
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+			<div class="full_wrap">
+				<div class="lang_wrap">
+					<a href="/index.php">KOR</a>
+				</div>
+				<ul class="gnb">
+					<li>
+						<a href="#" class="depth1">HOME</a>
+					</li>
+					<li>
+						<p class="depth1">ABOUT US</p>
+						<ul class="lnb">
+							<li><a href="ceo.php">CEO GREETING</a></li>
+							<li><a href="vision.php">Vision</a></li>
+							<li><a href="organization.php">Organization chart</a></li>
+						</ul>
+					</li>
+					<li>
+						<p class="depth1">WORK</p>
+						<ul class="lnb">
+							<li><a href="platform.php">Platform Technology</a></li>
+							<li><a href="pipeline.php">Pipelines</a></li>
+							<li><a href="patent.php">Patents/Publications</a></li>
+						</ul>
+					</li>
+					<li>
+						<p class="depth1">PR</p>
+						<ul class="lnb">
+							<li><a href="news.php">NEWS</a></li>
+							<li><a href="notice.php">Notice</a></li>
+						</ul>
+					</li>
+					<li>
+						<p class="depth1">CONTACT US</p>
+						<ul class="lnb">
+							<li><a href="contact.php">Contact Us</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div id="A_Container_Wrap">
+
+		<div class="sub_visual sub_visual01">
+
+			<div class="inner">
+
+				<strong>CEO'S MESSAGE</strong>
+
+				<p>We put everyone's health and happiness first.</p>
+
+			</div>
+
+		</div>
+
+		<div class="nav_wrap">
+
+			<ul>
+
+				<li><a href="#">HOME</a></li>
+
+				<li><p>ABOUT US</p></li>
+
+				<li class="nav_sub">
+
+					<p>CEO'S Message</p>
+
+					<ul class="drop_box">
+
+						<li><a href="vision.php">Vision</a></li>
+
+						<li><a href="organization.php">Organization chart</a></li>
+
+					</ul>
+
+				</li>
+
+			</ul>
+
+		</div>
+
+		<div id="A_Container">
+
+			<div class="sub_contents pb0">
+
+				<div class="ceo">
+
+					<div class="ceo_top">
+
+						<div class="inner">
+
+							<div class="txt_box">
+
+								<h3>CEO'S <span>MESSAGE</span></h3>
+
+								<div>
+
+									<strong>Greetings from Yeong-min Park,<br/> CEO of DanDi Bioscience Inc.</strong>
+
+									<p>DanDi Bioscience pursues the improvement of the lives of patients and the health of human through the advancement of life science technology.</p>
+
+								</div>
+
+							</div>
+
+						</div>
+
+					</div>
+
+					<div class="inner">
+
+						<div class="txt_box02">
+
+							<p>We are convinced that drug discovery to assure the well-being of human is a priority in today’s fast-paced society. <br/>
+
+								Despite the radical leap forward achieved in the IT field by the exploitation of innovative and creative items, the growth in the medical and
+
+								life science sectors remains slow, especially when the rate of new drug launches is declining up to date.<br/>
+
+								<br/>
+
+								Looking ahead DanDi BioScience is determined to overcome this issue and to provide healthcare solutions. The company provides an adequate hub for drug development by overlapping the knowledge of key executives, infection and immunology specialists, and development experts in one platform. Hence, speeding up the development of source technologies by carrying out the research responsibilities of individual pipelines.<br/>
+
+								<br/>
+
+								People are always at the center of our priorities, and we will be always striving to met their health needs and their expectations and seeking their well-being and happiness. We promise to make every effort and to do our best, as respecting and loving people had been always the motive of treating diseases and the reason of DanDi BioScience’s growth.
+
+							</p>
+
+							<strong class="sign">Regards, <br/>
+
+								CEO. Yeong-Min Park </strong>
+
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class="history">
+
+					<!-- <div class="img_box">
+
+						<img src="images/sub/ceo_bg02.jpg">
+
+					</div> -->
+
+					<div class="history_box">
+
+						<div class="history_list">
+
+							<h3>PROFILE</h3>
+
+							<div class="txt_box">
+
+								<strong>Research Highlight</strong>
+								<p class="research_txt">183 publications Since last 5 years</p>
+								<ul>
+
+									<li><p>30 SCI(E) publications (lead author) </p></li>
+
+									<li><p>25 PCT applications </p></li>
+
+								</ul>
+
+							</div>
+
+							<div class="txt_box">
+
+								<strong>Career</strong>
+
+								<ul>
+
+									<li class="year"><span>2013 - Present</span><p>Professor of Immunology, Konkuk Univ, Medical College </p>
+
+									<li class="year"><span>2016 - 2020</span><p>Director of Konkuk Univ, Life and Medical Science Institute</p>
+
+									<li class="year"><span>2016</span><p>Chairman of Korean Society of Immunologists</p>
+
+									<li class="year"><span>2013 - 2015</span><p>Head of Korea Research Foundation of Basic Research Division (Medical department)</p>
+
+									<li class="year"><span>2011 - 2013</span><p>Review Member of Korea Health Industry Promotion Agency's Quality Certification (Biomedical field)</p>
+
+								</ul>
+
+							</div>
+
+							<div class="txt_box">
+
+								<strong>Ongoing National Projects</strong>
+
+								<ul>
+
+									<li class="year"><span>2019 – 2023</span><p>Person in charge of First-in-class Developing Project (Immunotherapeutics for Cancer, Korean Research Foundation)</p></li>
+
+									<li class="year"><span>2016 – 2022</span><p>Chairman of Medical Research Council
+
+										(MRC, Ministry of Science and Technology )</p></li>
+
+								</ul>
+
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+	<div id="A_Footer">
+
+		<div class="inner">
+
+			<img class="ft_logo" src="images/common/logo.png" alt="DanDi Bioscience" />
+
+			<div class="ft_txt">
+
+				<span>CEO of DanDi Bioscience Inc. : Yeong-Min Park</span>
+
+				<span>Business license number : 677-88-00337</span>
+
+				<span><a href="http://ethics-hlbgroup.com/" target="_blank" >Ethical Management(Cyber ​​Report)</a></span>
+
+				<p class="copy">CopyrightⓒDanDi Bioscience. ALL RIGHTS RESERVED</p>
+
+			</div>
+
+		</div>
+
+
+	</div>
+
+</div>
+
+</body>
+
+</html>

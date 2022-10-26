@@ -1,0 +1,94 @@
+.post-comments {
+  margin-top: 10px !important;
+  background-color: transparent;
+}
+.btn-custom-postSend {
+  margin-left: 5px !important;
+  margin-right: -5px !important;
+}
+.icon-postSend {
+  height: 25px !important;
+  width: 25px !important;
+}
+.input-comments {
+  text-align: left !important;
+}
+
+.input-post {
+  width: 280px !important;
+  height: 40px !important;
+}
+
+.icon-userpost1 {
+  height: 27px !important;
+  width: 27px !important;
+  margin-right: 5px !important;
+}
+.icon-postClose1 {
+  height: 15px !important;
+  width: 15px !important;
+}
+.font-custom-username1 {
+  font-size: 16px !important;
+  font-weight: bold;
+  margin-top: 1px !important;
+  color: #2d4471 !important;
+}
+
+.btn-custom-postClose1 {
+  margin-left: 80px;
+  margin-top: -10px !important;
+  margin-right: 0px !important;
+}
+
+.font-comments {
+  max-width: 500px !important;
+  text-align: start !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  margin-left: 5px !important;
+  margin-top: 0px !important;
+  margin-bottom: 5px !important;
+
+  word-wrap: normal !important;
+}
+
+/* Mobile1 */
+@media screen and (min-width: 400px) and (max-width: 480px) {
+  .font-comments {
+    max-width: 500px !important;
+    text-align: start !important;
+    font-size: 2.5vw !important;
+    font-weight: 600 !important;
+    margin-left: 5px !important;
+    margin-top: 0px !important;
+    margin-bottom: 5px !important;
+
+    word-wrap: normal !important;
+  }
+}
+
+/* Mobile2 */
+@media screen and (max-width: 399px) {
+  .font-comments {
+    max-width: 500px !important;
+    text-align: start !important;
+    font-size: 2.5vw !important;
+    font-weight: 600 !important;
+    margin-left: 5px !important;
+    margin-top: 0px !important;
+    margin-bottom: 5px !important;
+
+    word-wrap: normal !important;
+  }
+  .m-input-comment {
+    height: 35px !important;
+    font-size: 2.5vw !important;
+  }
+  .input-comments {
+    font-size: 3vw !important;
+  }
+  .commentStatus {
+    font-size: 3vw !important;
+  }
+}

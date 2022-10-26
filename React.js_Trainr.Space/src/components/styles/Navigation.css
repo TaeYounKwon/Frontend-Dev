@@ -1,0 +1,139 @@
+.header {
+  background-color: white;
+  height: 90px;
+}
+
+.logo-custom-navi {
+  height: 100px;
+  width: 100px;
+  position: relative;
+  margin-top: -5px;
+}
+.font-logo-navi {
+  font-size: 32px;
+  font-weight: bolder;
+  margin-left: -10px;
+}
+
+.font-logo-userHeader {
+  font-size: 32px;
+  font-weight: bolder;
+  margin-left: -10px;
+}
+
+.font-logo-color {
+  color: #2d4471;
+}
+
+.button-custom-1 {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+  color: #8aa899;
+  align-items: center;
+}
+
+.welcome-user {
+  width: 100vw !important;
+  position: relative !important;
+}
+
+.btn-custom-createClass {
+  color: white !important;
+  font-size: 28px !important;
+  font-weight: 600 !important;
+}
+
+@media screen and (min-width: 480px) and (max-width: 880px) {
+  .header {
+    display: none;
+    height: 0px;
+  }
+
+  .logo-custom-navi {
+    display: none;
+    height: 100px;
+    width: 100px;
+    position: relative;
+    margin-top: 5px;
+  }
+  .font-logo-navi {
+    display: none;
+  }
+
+  .button-custom-1 {
+    display: none;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    color: #8aa899;
+    align-items: center;
+  }
+
+  .welcome-user {
+    width: 600px !important;
+    position: relative !important;
+    top: 10px !important;
+  }
+
+  .font-logo-userHeader {
+    font-size: 32px;
+    font-weight: bolder;
+    margin-left: -10px;
+  }
+}
+
+/* Mobile */
+@media screen and (max-width: 480px) {
+  .header {
+    display: none;
+    height: 0px;
+  }
+
+  .logo-custom-navi {
+    display: none;
+    height: 100px;
+    width: 100px;
+    position: relative;
+    margin-top: 5px;
+  }
+  .font-logo-navi {
+    display: none;
+  }
+
+  .button-custom-1 {
+    display: none;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    color: #8aa899;
+    align-items: center;
+  }
+
+  .option-style {
+    display: none;
+    height: 70px;
+    width: 70px;
+    position: relative;
+    margin-top: 5px;
+    margin-right: 20px;
+  }
+
+  .welcome-user {
+    width: 600px !important;
+    position: relative !important;
+    top: 10px !important;
+  }
+
+  .font-logo-userHeader {
+    font-size: 6vw !important;
+    font-weight: bolder;
+    margin-left: -10px;
+  }
+}

@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>DanDi Bioscience</title>
+    <link href="images/common/logo_title.png" rel="shortcut icon" type="image/x-icon">
+    <link rel="stylesheet" href="_css/layout.css" />
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/jquery-animate-css-rotate-scale.js"></script>
+    <script>
+        $(document).ready(function(){
+            // 상단 헤더 이펙트
+            // window.onscroll = function(){
+            // 	if($(document).scrollTop() > 1){
+            // 		$(".header_wrap").addClass("indicator");
+            // 	}else{
+            // 		$(".header_wrap").removeClass("indicator");
+            // 	}
+            // }
+            $(".gnb > li").mouseover (function(){
+                $(".header_wrap").addClass("indicator");
+            });
+
+            $("#A_Header").mouseleave (function(){
+                if(!$(document).scrollTop() > 1){
+                    $(".header_wrap").removeClass("indicator");
+                }
+            });
+            // PC 메뉴 오픈
+            $(".gnb_wrap .gnb > li").on('mouseover', function(){
+                $(this).addClass('on');
+                $(this).find('.lnb').stop().slideDown();
+            }).on('mouseout',function(){
+                $(this).removeClass('on');
+                $(this).find('.lnb').stop().slideUp();
+            });
+            // 언어 마우스오버
+            $('.util .lang_wrap a').mouseenter(function(){
+                $(this).text('ENG');
+            });
+            $('.util .lang_wrap a').mouseleave(function(){
+                $(this).text('KOR');
+            });
+            var posY;
+            function bodyFreezeScroll() {
+                posY = $(window).scrollTop();
+                $("html").css("position","fixed");
+                $("html").css("top",-posY);
+            }
+            function bodyUnfreezeScroll() {
+                $("html").css("position","static");
+                posY = $(window).scrollTop(posY);
+            }
+            // 사이트맵 오픈
+            $('.btn_sitemap').click(function(){
+                $('.sitemap_wrap').fadeIn();
+                bodyFreezeScroll();
+            });
+            $('.sitemap_wrap .btn_close').click(function(){
+                $('.sitemap_wrap').fadeOut();
+                bodyUnfreezeScroll();
+            });
+            // menu open
+            menu_bt = 0;
+            $('.menubar').click(function(){
+                if( menu_bt == 0 ) {
+                    bodyFreezeScroll();
+                    $('.menubar li:eq(0)').animate({'rotate':'45deg','top':'5px'},300);
+                    $('.menubar li:eq(1)').fadeOut();
+                    $('.menubar li:eq(2)').animate({'rotate':'-45deg','top':'5px'},300);
+                    $('.menubar li').css('background-color', '#fff');
+                    $('.full_wrap').css('right', '0');
+                    menu_bt = 1;
+                } else if( menu_bt == 1 ) {
+                    bodyUnfreezeScroll();
+                    $('.menubar li:eq(0)').animate({'rotate':'0','top':'0'},300);
+                    $('.menubar li:eq(1)').fadeIn();
+                    $('.menubar li:eq(2)').animate({'rotate':'0','top':'10px'},300);
+                    $('.menubar li').removeAttr('style');
+                    $('.full_wrap').css('right', '-80%');
+                    menu_bt = 0;
+                }
+            });
+            // 모바일 메뉴
+            $('.full_wrap .gnb > li').click(function(){
+                $(this).addClass('on');
+                $(this).children('.lnb').slideToggle();
+                $(this).siblings().children('.lnb').slideUp();
+                $(this).siblings().removeClass("on");
+            });
+        });
+    </script>
+    <!-- s: 현재페이지에만 적용할 특정 스크립트 추가영역 -->
+    <link rel="stylesheet" href="_css/main.css" />
+    <link rel="stylesheet" href="_css/slick-theme.css" />
+    <link rel="stylesheet" href="_css/slick.css" />
+    <script src="js/slick.js"></script>
+    <script>
+        $(document).ready(function() {
+            // 상단 헤더 이펙트
+            window.onscroll = function(){
+                if($(document).scrollTop() > 1){
+                    $(".header_wrap").addClass("indicator");
+                }else{
+                    $(".header_wrap").removeClass("indicator");
+                }
+            }
+
+            $('.visual_wrap').slick({
+                autoplay: true,
+                autoplaySpeed: 3000,
+                speed: 500,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                arrows: false,
+                dots: true,
+                responsive: [
+                    {
+                        breakpoint: 768,
+                        settings: {
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                        }
+                    }
+                ]
+            });
+            $('.tech_slide').slick({
+                autoplay: true,
+                autoplaySpeed: 3000,
+                speed: 500,
+                centerMode: true,
+                centerPadding: '470px',
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                dots: true,
+                responsive: [
+                    {
+                        breakpoint: 1700,
+                        settings: {
+                            centerPadding: '350px',
+                        }
+                    },
+                    {
+                        breakpoint: 1400,
+                        settings: {
+                            centerPadding: '250px',
+                        }
+                    },
+
+                    {
+                        breakpoint: 1200,
+                        settings: {
+                            centerPadding: '120px',
+                        }
+                    },
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            centerPadding: '30px',
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            centerMode: false,
+                            centerPadding: '15px',
+                        }
+                    }
+                ]
+            });
+
+            $('.visual_wrap').append("<button type='button' class='btn_pp btn_pause'>정지</button>");
+            $('.tech_slide').append("<button type='button' class='btn_pp btn_pause'>정지</button>");
+            $('.btn_pause').click(function() {
+                if($(this).hasClass('btn_pause')){
+                    $(this).removeClass('btn_pause');
+                    $(this).addClass('btn_play');
+                    $(this).parent('.slick-slider').slick('slickPause');
+                    $(this).text('정지');
+                } else {
+                    $(this).removeClass('btn_play');
+                    $(this).addClass('btn_pause');
+                    $(this).parent('.slick-slider').slick('slickPlay');
+                    $(this).text('재생');
+                }
+            });
+        });
+    </script>
+    <!-- e: 현재페이지에만 적용할 특정 스크립트 추가영역 -->
+
+</head>
+<body>
+<div id="A_Wrap">
+    <div id="A_Header">
+        <div class="header_wrap indicator">
+
+
+            <h1 class="logo">
+
+                <a href="index.html">DanDi Bioscience</a>
+
+            </h1>
+
+            <div class="gnb_wrap">
+
+                <ul class="gnb">
+
+                    <li>
+
+                        <a href="index.html" class="depth1">HOME</a>
+
+                    </li>
+
+                    <li>
+
+                        <p class="depth1">ABOUT US</p>
+
+                        <ul class="lnb">
+
+                            <li><a href="company.html">회사소개</a></li>
+
+                            <li><a href="ceo.html"><span>CEO</span> 인사말</a></li>
+
+                            <li><a href="esg.html">ESG 경영</a></li>
+
+                            <li><a href="organization.html">조직도</a></li>
+
+
+
+                        </ul>
+
+                    </li>
+
+                    <li>
+
+                        <p class="depth1">WORK</p>
+
+                        <ul class="lnb">
+
+                            <li><a href="platform.html">핵심 기술</a></li>
+
+                            <li><a href="pipeline.html">파이프라인</a></li>
+
+                            <li><a href="patent.html">주요 실적</a></li>
+
+                        </ul>
+
+                    </li>
+
+                    <li>
+
+                        <p class="depth1">PR</p>
+
+                        <ul class="lnb">
+
+                            <li><a href="news.html">뉴스</a></li>
+
+                            <li><a href="notice.html">공지사항</a></li>
+
+                        </ul>
+
+                    </li>
+
+                    <li>
+
+                        <p class="depth1">CONTACT US</p>
+
+                        <ul class="lnb">
+
+                            <li><a href="contact.html">오시는길</a></li>
+
+                        </ul>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <div class="util">
+
+                <div class="lang_wrap">
+
+                    <a href="/eng/index.html">KOR</a>
+
+                </div>
+
+                <button type="button" class="btn_sitemap">사이트맵</button>
+
+            </div>
+
+            <div class="sitemap_wrap">
+
+                <div class="inner">
+
+                    <strong class="sitemap_logo">
+
+                        <a href="index.html">DanDi Bioscience</a>
+
+                    </strong>
+
+                    <ul class="sitemap_list">
+
+                        <li>
+
+                            <p>ABOUT US</p>
+
+                            <ul>
+
+                                <li><a href="company.html">회사소개</a></li>
+
+                                <li><a href="ceo.html"><span>CEO</span> 인사말</a></li>
+
+                                <li><a href="esg.html">ESG 경영</a></li>
+
+                                <li><a href="organization.html">조직도</a></li>
+
+                            </ul>
+
+                        </li>
+
+                        <li>
+
+                            <p>WORK</p>
+
+                            <ul>
+
+
+                                <li><a href="platform.html">핵심 기술</a></li>
+
+                                <li><a href="pipeline.html">파이프라인</a></li>
+
+                                <li><a href="patent.html">주요 실적</a></li>
+
+                            </ul>
+
+                        </li>
+
+                        <li>
+
+                            <p>PR</p>
+
+                            <ul>
+
+                                <li><a href="news.html">뉴스</a></li>
+
+                                <li><a href="notice.html">공지사항</a></li>
+
+                            </ul>
+
+                        </li>
+
+                        <li>
+
+                            <p>CONTACT US</p>
+
+                            <ul>
+
+                                <li><a href="contact.html">오시는길</a></li>
+
+                            </ul>
+
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <button type="button" class="btn_close">닫기</button>
+
+            </div>
+
+            <ul class="menubar">
+
+                <li></li>
+
+                <li></li>
+
+                <li></li>
+
+            </ul>
+
+            <div class="full_wrap">
+
+                <div class="lang_wrap">
+
+                    <a href="/eng/index.html">ENG</a>
+
+                </div>
+
+                <ul class="gnb">
+
+                    <li>
+
+                        <a href="/index.html" class="depth1">HOME</a>
+
+                    </li>
+
+                    <li>
+
+                        <p class="depth1">ABOUT US</p>
+
+                        <ul class="lnb">
+
+                            <li><a href="company.html">회사소개</a></li>
+
+                            <li><a href="ceo.html"><span>CEO</span> 인사말</a></li>
+
+                            <li><a href="esg.html">ESG 경영</a></li>
+
+                            <li><a href="organization.html">조직도</a></li>
+                        </ul>
+
+                    </li>
+
+                    <li>
+
+                        <p class="depth1">WORK</p>
+
+                        <ul class="lnb">
+
+                            <li><a href="platform.html">핵심 기술</a></li>
+
+                            <li><a href="pipeline.html">파이프라인</a></li>
+
+                            <li><a href="patent.html">주요 실적</a></li>
+
+
+                        </ul>
+
+                    </li>
+
+                    <li>
+
+                        <p class="depth1">PR</p>
+
+                        <ul class="lnb">
+
+                            <li><a href="news.html">뉴스</a></li>
+
+                            <li><a href="notice.html">공지사항</a></li>
+
+                        </ul>
+
+                    </li>
+
+                    <li>
+
+                        <p class="depth1">CONTACT US</p>
+
+                        <ul class="lnb">
+
+                            <li><a href="contact.html">오시는길</a></li>
+
+                        </ul>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div id="A_Container_Wrap">
+        <div class="visual_wrap">
+            <div class="slide slide01">
+                <div class="inner">
+                    <p>감염 및 면역 제어 전문가들이 연구해낸</p>
+                    <strong>바이오 신약 개발</strong>
+                </div>
+            </div>
+
+            <div class="slide slide02">
+                <div class="inner">
+                    <p>감염원 유래 질환인 패혈증 및 치매치료제 신약 개발로 도약하는</p>
+                    <strong>글로벌 바이오 의약 기업</strong>
+                </div>
+            </div>
+            <div class="slide slide03">
+                <div class="inner">
+                    <h2 style="color:white">Consist of Infection and Immune-Related Diseases Experts</h2>
+                    <strong>혁신 신약 개발 기업</strong>
+                </div>
+            </div>
+        </div>
+
+        <div class="tech_wrap">
+            <h2 class="main_tit">DANDI BIOSCIENCE'S<span>INNOVATIVE LIFE SCIENCE AND MEDICINE CORE TECHNOLOGY</span></h2>
+            <div class="tech_slide">
+                <div class="slide slide01">
+                    <strong class="tit">패혈증 치료제</strong>
+                </div>
+                <div class="slide slide02">
+                    <strong class="tit">슈퍼박테리아용 항생제</strong>
+                </div>
+                <div class="slide slide03">
+                    <strong class="tit">치매치료제</strong>
+                </div>
+                <div class="slide slide04">
+                    <strong class="tit">치매 진단키트</strong>
+                </div>
+
+                <div class="slide slide05">
+                    <strong class="tit">혈액 정화 모듈</strong>
+                </div>
+                <div class="slide slide06">
+                    <strong class="tit">내독소 제거 키트</strong>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="sepsis_wrap">
+            <div class="sepsis_txt">
+                <strong>3가지 개념의 패혈증 치료제<em>DD-S052</em></strong>
+                <p class="txt01">DD-S052는 세균의 사멸뿐만 아니라 내독소의 제거 활성을 갖는 신개념 혁신 신약입니다.</p>
+                <p class="txt02">패혈증 치료를 위한 항생제 투여는 세균을 사멸하는 효과는 있지만 세균 사멸 과정에서 생성되는 내독소는 제어하지 못합니다.
+                    특히, 내독소 생성 과다에 의한 우리 몸의 방어 체계인 면역 시스템의 사이토카인 폭풍 현상은 각 장기 조직의 괴사를 통한 사망을 초래합니다.
+                </p>
+            </div>
+
+            <div class="sepsis_point">
+                <div class="tit">
+                    <strong>패혈증 및 슈퍼 <br> 박테리아 감염치료제<span>DD-S052</span></strong>
+                </div>
+
+                <div class="point_list">
+                    <ul>
+                        <li>
+                            <div class="txt_box">
+                                <p>슈퍼박테리아<br/>사멸</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="txt_box">
+                                <p>내독소<br/>제거</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="txt_box">
+                                <p>살균능<br/>상승작용</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <ul class="txt_list">
+                    <li>
+                        <p>슈퍼박테리아용 항생제</p>
+                    </li>
+                    <li>
+                        <p>내독소 제거 키트</p>
+                        <p>혈액정화 모듈</p>
+                    </li>
+                    <li>
+                        <p>기존 항생제와 병용투여에 의한 상승효과<br/>(임상시험진입용이)</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="bnn_wrap">
+            <div class="inner">
+                <strong>단디바이오사이언스는</strong>
+                <p>더 많은 사람의 건강과 행복을 <br class="m_block"/>지키기 위해<br class="m_none"/>최고의 전문가들과 함께
+                    <br class="m_block"/>최선을 다하고 있습니다.</p>
+            </div>
+        </div>
+
+        <div class="sepsis_wrap">
+            <div class="sepsis_txt">
+                <strong>감염가설을 통한 알츠하이머 치매 치료제 및 치매 진단 키트<em>DD-A279 & DD-A514</em></strong>
+                <p class="txt01">DD-A279는 내독소 및 그람음성균 제어를 통해 치매를 근본적으로 치료하는 신약입니다.<br>DD-A514는 빠르고 정확하게 치매를 판단해주는 편이성 높은 진단 키트입니다. </p>
+                <p class="txt02">
+                    알츠하이머 치매는 현재까지 근본적인 치료제가 없는 상황입니다. 그러나 내독소 및 그람음성균이 치매 발병에 직접적인 영향을 미치는 것을 연구를 통해 알아내었습니다.
+                    또한 비싸고 편이성 없는 알츠하이머 진단 키트때문에 많은 사람들이 치매를 조기에 진단하지 못해 치매 지연을 실패하고 있습니다.
+                </p>
+            </div>
+
+            <div class="sepsis_point">
+                <div class="tit">
+                    <strong>알츠하이머 치매 </br>
+                        치료제 및 진단 키트<span>DD-A279 </br>& DD-A514</span></strong>
+                </div>
+
+                <div class="point_list">
+                    <ul>
+                        <li>
+                            <div class="txt_box">
+                                <p>내독소<br/>제거</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="txt_box">
+                                <p>인지기능<br/>개선</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="txt_box">
+                                <p>정확한<br/>조기진단</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <ul class="txt_list">
+                    <li>
+                        <p>내독소 제어 키트</p>
+                        <p>그람음성균 제거 키트</p>
+                    </li>
+                    <li>
+                        <p>치매 치료제</p>
+                    </li>
+                    <li>
+                        <p>치매 진단 키트</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="pr_wrap">
+            <div class="inner">
+                <div class="board_box notice_box">
+                    <h2 class="main_tit02">공지사항</h2>
+                    <ul class="board_list">
+                        <li  class="first" >
+                            <a href="notice.html">
+                                <div class="date_box">
+                                    <span class="month">3</span>
+                                    <span class="day">25</span>
+                                </div><div class="txt_box">
+                                <strong class="tit">제5기 결산공고</strong>
+                                <p>
+                                <p>
+                                <br style="clear: both;">%...
+                            </p>
+                            </div>
+                            </a>
+                        </li>
+
+                        <li >
+                            <a href="notice.html">	<strong class="tit">제5기 감사보고서 및 사업보고서</strong>
+                                <span class="date">2021-03-17</span>
+                            </a></li><li >	<a href="notice.html">
+                        <strong class="tit">제5기 정기주주총회 서면투표 용지</strong>
+                        <span class="date">2021-03-11</span>
+                    </a>
+                    </li>
+                    </ul>
+                    <button type="button" class="btn_more" onclick="location.href='notice.html'";>더보기</button>
+                </div>
+
+                <div class="board_box news_box">
+                    <h2 class="main_tit02">보도자료</h2>
+                    <ul class="board_list">
+                        <li  class="first" >
+                            <a href="news.html">
+                                <div class="date_box">
+                                    <span class="month">3</span>
+                                    <span class="day">25</span>
+                                </div>
+                                <div class="txt_box">
+                                    <strong class="tit">단디바이오사이언스, 프라임생활건강과 건기식 개발 업무협약 체결</strong>
+                                    <p>
+                                    <p>
+                                    <b>단디 면역기술과 프라임 ...</b></p>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="news.html">
+                                <strong class="tit">단디바이오사이언스 박영민 대표, 대한민국의학한림원 정회원 선정</strong>
+                                <span class="date">2021-03-23</span>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="news.html">
+                                <strong class="tit">단디바이오사이언스, 플렉센스와 차세대 치매 진단키트 개발 추진</strong>
+                                <span class="date">2021-03-18</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <button type="button" class="btn_more" onclick="location.href='news.html'";>더보기</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="map_wrap">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3163.4035950098523!2d127.04916271575613!3d37.54555397980178!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca49767955987%3A0xc1d7c69a4a921eb1!2z7ISc7Jq47Yq567OE7IucIOyEseuPmeq1rCDshLHsiJgy6rCAM-uPmSDslYTssKjsgrDroZwgNjYgNuy4tQ!5e0!3m2!1sko!2skr!4v1595987555653!5m2!1sko!2skr" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0">
+
+            </iframe>
+
+            <div class="txt_box">
+                <strong>단디바이오사이언스 주식회사</strong>
+                <ul>
+                    <li><span>Address</span><p>서울특별시 성동구 아차산로 66, 6층 (성수동2가)</p></li>
+                    <li><span>Fax</span><p>070-8280-0378</p></li>
+                    <li><span>E-mail</span><p>dandibio@dandibio.com</p></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="A_Footer">
+        <div class="inner">
+            <img class="ft_logo" src="images/common/logo.png" alt="DanDi Bioscience" />
+            <div class="ft_txt">
+                <span>단디바이오사이언스 주식회사 대표자 : 박영민</span>
+                <span>사업자등록번호 : 677-88-00337</span>
+                <span><a href="http://ethics-hlbgroup.com/" target="_blank" >윤리경영(사이버제보)</a></span>
+                <p class="copy">CopyrightⓒDanDi Bioscience. ALL RIGHTS RESERVED</p>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+

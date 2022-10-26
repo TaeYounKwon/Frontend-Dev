@@ -1,0 +1,15 @@
+{
+  "short_name": "Trainr.Space",
+  "name": "App to connect to online classes",
+  "icons": [
+    {
+      "src": "/images/trainrLogo500.png",
+      "sizes": "192x192 225x250 512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}

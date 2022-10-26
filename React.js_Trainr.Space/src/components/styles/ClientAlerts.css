@@ -1,0 +1,25 @@
+.alert-custom1{
+  width: 380px !important;
+  color: #FE545C;
+  font-size: 16.5px;
+  font-weight: bold;
+  margin-bottom: -10px;
+}
+
+
+
+
+/* Mobile */
+@media screen and (max-width:480px) {
+
+  .alert-custom1{
+    width: 80vw !important;
+    color: #FE545C;
+    font-size: 4vw !important;
+    font-weight: bold;
+    
+    margin-bottom: -10px!important;
+  }
+  
+  
+}

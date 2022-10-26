@@ -1,0 +1,79 @@
+.menu-modal{
+    display: block;
+    position: fixed;
+    bottom:  0%; 
+    right: 0%;
+}
+
+.modal-menu-item {
+    cursor: pointer;
+}
+
+@mixin on-circle($item-count, $circle-size, $item-size) {
+    position: relative;
+    width:  $circle-size;
+    height: $circle-size;
+    padding: 0;
+    border-radius: 50%;
+    list-style: none;
+
+    
+    > * {
+      display: block;
+      position: absolute;
+      top:  50%; 
+      left: 50%;
+      width:  $item-size;
+    
+      $angle: (90 / $item-count);
+      $rot: 180;
+  
+      @for $i from 1 through $item-count {
+        &:nth-of-type(#{$i}) {
+          transform: 
+            rotate($rot * 1deg) 
+            translate(($circle-size / 1.55) * 10)
+            rotate($rot * -1deg);
+        }
+  
+        $rot: $rot + $angle;
+      }
+    }
+  }
+
+  .circ-cont {
+    @include on-circle($item-count: 5, $circle-size: 1em, $item-size: 1em);
+    
+    padding-top: 0rem;
+    padding-right: 0rem;
+
+    i { 
+      display: block; 
+      filter: grayscale(100%);
+      transition: .15s;
+      
+      &:hover,
+      &:active {
+        filter: grayscale(0);
+      }
+    }
+  }
+
+  .the-x {
+      position: relative;
+
+      margin-right: 0.3rem;
+      margin-bottom: -1rem;
+
+      i {
+        position: absolute;
+        transition: .15s;
+
+        transform: translate(-45px, -5px);
+        
+        &:hover,
+        &:active {
+          filter: grayscale(0);
+        }
+      }
+  }

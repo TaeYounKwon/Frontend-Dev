@@ -1,0 +1,16 @@
+{
+  "resourceName": "classfiles",
+  "policyUUID": "e9853f76",
+  "bucketName": "trainrspace9789522308584244a44e0900562a1668",
+  "storageAccess": "authAndGuest",
+  "guestAccess": [
+    "READ"
+  ],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ],
+  "triggerFunction": "NONE",
+  "groupAccess": {}
+}

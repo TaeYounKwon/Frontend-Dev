@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>DanDi Bioscience</title>
+    <link href="images/common/logo_title.png" rel="shortcut icon" type="image/x-icon">
+    <link rel="stylesheet" href="_css/layout.css" />
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/jquery-animate-css-rotate-scale.js"></script>
+    <script>
+        $(document).ready(function(){
+            // 상단 헤더 이펙트
+            // window.onscroll = function(){
+            // 	if($(document).scrollTop() > 1){
+            // 		$(".header_wrap").addClass("indicator");
+            // 	}else{
+            // 		$(".header_wrap").removeClass("indicator");
+            // 	}
+            // }
+            $(".gnb > li").mouseover (function(){
+                $(".header_wrap").addClass("indicator");
+            });
+
+            $("#A_Header").mouseleave (function(){
+                if(!$(document).scrollTop() > 1){
+                    $(".header_wrap").removeClass("indicator");
+                }
+            });
+
+            // PC 메뉴 오픈
+            $(".gnb_wrap .gnb > li").on('mouseover', function(){
+                $(this).addClass('on');
+                $(this).find('.lnb').stop().slideDown();
+            }).on('mouseout',function(){
+                $(this).removeClass('on');
+                $(this).find('.lnb').stop().slideUp();
+            });
+
+
+            // 언어 마우스오버
+            $('.util .lang_wrap a').mouseenter(function(){
+                $(this).text('ENG');
+            });
+            $('.util .lang_wrap a').mouseleave(function(){
+                $(this).text('KOR');
+            });
+
+            var posY;
+            function bodyFreezeScroll() {
+                posY = $(window).scrollTop();
+                $("html").css("position","fixed");
+                $("html").css("top",-posY);
+            }
+
+            function bodyUnfreezeScroll() {
+                $("html").css("position","static");
+                posY = $(window).scrollTop(posY);
+            }
+
+            // 사이트맵 오픈
+            $('.btn_sitemap').click(function(){
+                $('.sitemap_wrap').fadeIn();
+                bodyFreezeScroll();
+            });
+            $('.sitemap_wrap .btn_close').click(function(){
+                $('.sitemap_wrap').fadeOut();
+                bodyUnfreezeScroll();
+            });
+
+            // menu open
+            menu_bt = 0;
+            $('.menubar').click(function(){
+                if( menu_bt == 0 ) {
+                    bodyFreezeScroll();
+                    $('.menubar li:eq(0)').animate({'rotate':'45deg','top':'5px'},300);
+                    $('.menubar li:eq(1)').fadeOut();
+                    $('.menubar li:eq(2)').animate({'rotate':'-45deg','top':'5px'},300);
+                    $('.menubar li').css('background-color', '#fff');
+                    $('.full_wrap').css('right', '0');
+                    menu_bt = 1;
+                } else if( menu_bt == 1 ) {
+                    bodyUnfreezeScroll();
+                    $('.menubar li:eq(0)').animate({'rotate':'0','top':'0'},300);
+                    $('.menubar li:eq(1)').fadeIn();
+                    $('.menubar li:eq(2)').animate({'rotate':'0','top':'10px'},300);
+                    $('.menubar li').removeAttr('style');
+                    $('.full_wrap').css('right', '-80%');
+                    menu_bt = 0;
+
+                }
+            });
+            // 모바일 메뉴
+            $('.full_wrap .gnb > li').click(function(){
+                $(this).addClass('on');
+                $(this).children('.lnb').slideToggle();
+                $(this).siblings().children('.lnb').slideUp();
+                $(this).siblings().removeClass("on");
+            });
+        });
+    </script>
+
+    <!-- s: 현재페이지에만 적용할 특정 스크립트 추가영역 -->
+    <link rel="stylesheet" href="_css/sub.css" />
+    <script>
+        $(document).ready(function() {
+            $('.nav_sub').click(function(){
+                $('.drop_box').slideToggle();
+            });
+
+            //Search
+            $("#btnSearch").click(function(){
+                $("#bbs_page").val("");
+                $('#frm').attr({
+                    'action': 'news.html',
+                    'enctype': 'application/x-www-form-urlencoded',
+                    'encoding': 'application/x-www-form-urlencoded',
+                    'target': '_self'
+                }).submit();
+            });
+        });
+    </script>
+    <!-- e: 현재페이지에만 적용할 특정 스크립트 추가영역 -->
+</head>
+
+<body>
+<div id="A_Wrap">
+    <div id="A_Header">
+        <div class="header_wrap indicator">
+
+
+            <h1 class="logo">
+
+                <a href="index.html">DanDi Bioscience</a>
+
+            </h1>
+
+            <div class="gnb_wrap">
+
+                <ul class="gnb">
+
+                    <li>
+
+                        <a href="index.html" class="depth1">HOME</a>
+
+                    </li>
+
+                    <li>
+
+                        <p class="depth1">ABOUT US</p>
+
+                        <ul class="lnb">
+
+                            <li><a href="company.html">회사소개</a></li>
+
+                            <li><a href="ceo.html"><span>CEO</span> 인사말</a></li>
+
+                            <li><a href="esg.html">ESG 경영</a></li>
+
+                            <li><a href="organization.html">조직도</a></li>
+
+
+
+                        </ul>
+
+                    </li>
+
+                    <li>
+
+                        <p class="depth1">WORK</p>
+
+                        <ul class="lnb">
+
+                            <li><a href="platform.html">핵심 기술</a></li>
+
+                            <li><a href="pipeline.html">파이프라인</a></li>
+
+                            <li><a href="patent.html">주요 실적</a></li>
+
+                        </ul>
+
+                    </li>
+
+                    <li>
+
+                        <p class="depth1">PR</p>
+
+                        <ul class="lnb">
+
+                            <li><a href="news.html">뉴스</a></li>
+
+                            <li><a href="notice.html">공지사항</a></li>
+
+                        </ul>
+
+                    </li>
+
+                    <li>
+
+                        <p class="depth1">CONTACT US</p>
+
+                        <ul class="lnb">
+
+                            <li><a href="contact.html">오시는길</a></li>
+
+                        </ul>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <div class="util">
+
+                <div class="lang_wrap">
+
+                    <a href="/eng/index.html">KOR</a>
+
+                </div>
+
+                <button type="button" class="btn_sitemap">사이트맵</button>
+
+            </div>
+
+            <div class="sitemap_wrap">
+
+                <div class="inner">
+
+                    <strong class="sitemap_logo">
+
+                        <a href="index.html">DanDi Bioscience</a>
+
+                    </strong>
+
+                    <ul class="sitemap_list">
+
+                        <li>
+
+                            <p>ABOUT US</p>
+
+                            <ul>
+
+                                <li><a href="company.html">회사소개</a></li>
+
+                                <li><a href="ceo.html"><span>CEO</span> 인사말</a></li>
+
+                                <li><a href="esg.html">ESG 경영</a></li>
+
+                                <li><a href="organization.html">조직도</a></li>
+
+                            </ul>
+
+                        </li>
+
+                        <li>
+
+                            <p>WORK</p>
+
+                            <ul>
+
+
+                                <li><a href="platform.html">핵심 기술</a></li>
+
+                                <li><a href="pipeline.html">파이프라인</a></li>
+
+                                <li><a href="patent.html">주요 실적</a></li>
+
+                            </ul>
+
+                        </li>
+
+                        <li>
+
+                            <p>PR</p>
+
+                            <ul>
+
+                                <li><a href="news.html">뉴스</a></li>
+
+                                <li><a href="notice.html">공지사항</a></li>
+
+                            </ul>
+
+                        </li>
+
+                        <li>
+
+                            <p>CONTACT US</p>
+
+                            <ul>
+
+                                <li><a href="contact.html">오시는길</a></li>
+
+                            </ul>
+
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <button type="button" class="btn_close">닫기</button>
+
+            </div>
+
+            <ul class="menubar">
+
+                <li></li>
+
+                <li></li>
+
+                <li></li>
+
+            </ul>
+
+            <div class="full_wrap">
+
+                <div class="lang_wrap">
+
+                    <a href="/eng/index.html">ENG</a>
+
+                </div>
+
+                <ul class="gnb">
+
+                    <li>
+
+                        <a href="/index.html" class="depth1">HOME</a>
+
+                    </li>
+
+                    <li>
+
+                        <p class="depth1">ABOUT US</p>
+
+                        <ul class="lnb">
+
+                            <li><a href="company.html">회사소개</a></li>
+
+                            <li><a href="ceo.html"><span>CEO</span> 인사말</a></li>
+
+                            <li><a href="esg.html">ESG 경영</a></li>
+
+                            <li><a href="organization.html">조직도</a></li>
+                        </ul>
+
+                    </li>
+
+                    <li>
+
+                        <p class="depth1">WORK</p>
+
+                        <ul class="lnb">
+
+                            <li><a href="platform.html">핵심 기술</a></li>
+
+                            <li><a href="pipeline.html">파이프라인</a></li>
+
+                            <li><a href="patent.html">주요 실적</a></li>
+
+
+                        </ul>
+
+                    </li>
+
+                    <li>
+
+                        <p class="depth1">PR</p>
+
+                        <ul class="lnb">
+
+                            <li><a href="news.html">뉴스</a></li>
+
+                            <li><a href="notice.html">공지사항</a></li>
+
+                        </ul>
+
+                    </li>
+
+                    <li>
+
+                        <p class="depth1">CONTACT US</p>
+
+                        <ul class="lnb">
+
+                            <li><a href="contact.html">오시는길</a></li>
+
+                        </ul>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+    </div>
+   <div id="A_Container_Wrap">
+       <div class="sub_visual sub_visual03">
+           <div class="inner">
+               <strong>NEWS</strong>
+               <p>단디바이오사이언스의 새로운 소식을 알려드립니다.</p>
+           </div>
+       </div>
+       <div class="nav_wrap">
+           <ul>
+               <li><a href="index.html">HOME</a></li>
+               <li><p>PR</p></li>
+               <li class="nav_sub">
+                   <p>뉴스</p>
+                   <ul class="drop_box">
+
+                       <li><a href="notice.html">공지사항</a></li>
+                  </ul>
+               </li>
+           </ul>
+       </div>
+       <div id="A_Container">
+           <div class="sub_contents">
+               <div class="inner news">
+                   <form class="search_wrap" id="frm" name="frm" method="post">
+                       <input type="hidden" id="bbs_page" name="bbs_page" />
+                       <input type="hidden" id="idx" name="idx" />
+                       <div class="search_box">
+                           <select id="srcType" name="srcType">
+                               <option value="">전체</option>
+                               <option value="title" >제목</option>
+                               <option value="content" >내용</option>
+                           </select>
+                           <input type="text" id="srcText" name="srcText" value="" maxlength="20"/>
+                           <button type="button" id="btnSearch" name="btnSearch">검색</button>
+                       </div>
+                   </form>
+                   <table class="table_list">
+                       <colgroup>
+                           <col style="width: 10%;"/>
+                           <col style="width: ;"/>
+                           <col style="width: 15%;"/>
+                       </colgroup>
+                       <thead>
+                       <tr>
+                           <th>번호</th>
+                           <th>제목</th>
+                           <th>작성일</th>
+                       </tr>
+                       </thead>
+                       <tbody>
+                       <tr>
+                           <td>15</td>
+                           <td class="tit"><a href="news_view.php?srcType=&srcText=&idx=22&bbs_page=1">단디바이오사이언스, 프라임생활건강과 건기식 개발 업무협약 체결</a></td>
+                            <td>2021-03-25</td>
+                        </tr>
+                        <tr>
+                            <td>14</td>
+                            <td class="tit"><a href="news_view.php?srcType=&srcText=&idx=21&bbs_page=1">단디바이오사이언스 박영민 대표, 대한민국의학한림원 정회원 선정</a></td>
+                            <td>2021-03-23</td>
+                        </tr>
+                        <tr>
+                            <td>13</td>
+                            <td class="tit"><a href="news_view.php?srcType=&srcText=&idx=20&bbs_page=1">단디바이오사이언스, 플렉센스와 차세대 치매 진단키트 개발 추진</a></td>
+                            <td>2021-03-18</td>
+                        </tr>
+                        <tr>
+                            <td>12</td>
+                            <td class="tit"><a href="news_view.php?srcType=&srcText=&idx=19&bbs_page=1">김종원 넥스트사이언스 대표, 단디바이오사이언스 사내이사로 합류</a></td>
+                            <td>2021-03-17</td>
+                        </tr>
+                        <tr>
+                            <td>11</td>
+                            <td class="tit"><a href="news_view.php?srcType=&srcText=&idx=18&bbs_page=1">3월 3일자 YTN 사이언스 바이오 위클리 방영분</a></td>
+                            <td>2021-03-04</td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td class="tit"><a href="news_view.php?srcType=&srcText=&idx=17&bbs_page=1">단디바이오사이언스의 고문인 홍기종 교수의 제언</a></td>
+                            <td>2020-12-17</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td class="tit"><a href="news_view.php?srcType=&srcText=&idx=16&bbs_page=1">진양곤 회장, 넥스트사이언스 지분 83만주 추가 취득</a></td>
+                            <td>2020-10-06</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td class="tit"><a href="news_view.php?srcType=&srcText=&idx=15&bbs_page=1">단디바이오사이언스, 약물 분자 설계·치매 공동 연구 MOU 체결</a></td>
+                            <td>2020-10-06</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td class="tit"><a href="news_view.php?srcType=&srcText=&idx=14&bbs_page=1">단디바이오사이언스, 세균·세균유래 타깃 'AD 신약물질' 공개</a></td>
+                            <td>2020-08-31</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td class="tit"><a href="news_view.php?srcType=&srcText=&idx=12&bbs_page=1"> 5월 28일자 팍스경제TV(아시아경제) 클로즈업 기업현장 1574회 방영분</a></td>
+                            <td>2020-06-08</td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                    <div class="list_page">
+                        <button type="button" class="btn_first">맨앞</button>
+                        <button type="button" class="btn_prev">이전</button>
+                        <ul>
+                            <li class="active">
+                                <a href="#">1</a>
+                            </li>
+                            <li>
+                                <a href='/news.php?srcType=&srcText=&bbs_page=2&bbs_block=1'>2</a>
+                            </li>
+                        </ul>
+                        <button type="button" class="btn_next">다음</button>
+                        <button type="button" class="btn_last">맨뒤</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="A_Footer">
+        <div class="inner">
+            <img class="ft_logo" src="images/common/logo.png" alt="DanDi Bioscience" />
+            <div class="ft_txt">
+                <span>단디바이오사이언스 주식회사 대표자 : 박영민</span>
+                <span>사업자등록번호 : 677-88-00337</span>
+                <span><a href="http://ethics-hlbgroup.com/" target="_blank" >윤리경영(사이버제보)</a></span>
+                <p class="copy">CopyrightⓒDanDi Bioscience. ALL RIGHTS RESERVED</p>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
